@@ -1,0 +1,160 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Marché des plans - Mon Panier
+{% endblock %}
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<div class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>
+								Mon Panier<br>
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--End breadcrumb area-->
+
+	<!--Start cart area-->
+	<div class="cart-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<div class="table-outer">
+						<table class="cart-table">
+							<thead class="cart-header" style="background-color:#000;">
+								<tr>
+									<th style="color:#fff;">Maison</th>
+									<th>&nbsp;</th>
+									<th style="color:#fff;">Plan</th>
+									<th style="color:#fff;">Prix</th>
+
+									<th style="color:#fff;">Total</th>
+									<th style="color:#fff;">Actions</th>
+
+								</tr>
+							</thead>
+							<tbody>
+							{{ include('messages.html.twig') }}
+								{% for element in dataPanier %}
+									<tr>
+										{% include "Partie_users/Shared/transaction.html.twig" %}
+										{% include "Partie_users/Shared/payzy.html.twig" %}
+										<td colspan="2" class="prod-column">{{element.miniplan.plans.titre }}</td>
+
+										<td class="title">{{ element.miniplan.titre }}</td>
+										<td class="title">
+											{{ element.miniplan.prix }}
+											XOF</td>
+										{# <td>{{ element.quantite }}</td> #}
+										<td class="title">{{ element.miniplan.prix }}
+											XOF</td>
+										<td>
+
+											<a href="{{path("cart_delete", {id: element.miniplan.id})}}"  class="btn btn-danger">
+												Supprimer
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x" viewbox="0 0 16 16">
+													<path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
+													<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+												</svg>
+											</a>
+										</td>
+									</tr>
+								{% else %}
+
+									<tr>
+										<div class="checkout-area">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="exisitng-customer">
+															<h5>Votre panier est vide.<a href="{{path('plan_list')}}">Ajouter un plan au panier?</a>
+															</h5>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</tr>
+								{% endfor %}
+							</tbody>
+
+			
+
+							{% if dataPanier %}
+
+								<thead class="cart-header">
+									<tr>
+
+										<td colspan="4" style="font-weight:bold;color:#fff;background-color:#000">Total</td>
+										<th style="font-weight:bold;color:#fff;background-color:#000">&nbsp;</th>
+										<td colspan="4" style="font-weight:bold;color:#fff;background-color:#000">Actions</td>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="0" class="title" style="font-weight:bold;color:black">
+											<span class="badge badge-success">
+												{{ total }} XOF
+											</span>
+										</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+
+
+										<td colspan="0">
+
+											<a href="{{path("cart_delete_all")}}" class="btn btn-danger">
+												Vider le Panier
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x" viewbox="0 0 16 16">
+													<path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
+													<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+												</svg>
+											</a>
+
+										
+											<button data-toggle="modal" data-target="#paygate" class="btn btn-danger">
+												FLOOZ/TMONEY
+
+											</button>
+
+
+										</td>
+
+									</tr>
+								</tbody>
+
+							{% endif %}
+						</table>
+							<br>
+							<br>
+
+							<div class="update-cart pull-Right" style="text-align:center;">
+								<a class=" btn btn-danger" href="{{path('plan_list')}}">
+									Boutique des Maisons
+
+								</a>
+							</div>
+
+
+					
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+{% endblock %}

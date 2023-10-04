@@ -1,0 +1,207 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Modifier les Informations Personnelles
+
+
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('Admin/assets/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/assets/libs/jquery-steps/steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/dist/css/style.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+	<div class="col-lg-6">
+		{% if app.user %}
+			<div class="card-body box-profile">
+				<div class="text-center">
+					<i class="ti-user m-r-5 m-l-5">
+						Mon Profil
+					</i>
+				</div>
+				<h3 class="profile-username text-center">
+					{{ app.user.username }}
+				</h3>
+                
+
+				{% for role in user.roles %}
+
+					<p class="text-muted text-center">
+						{% if role == "ROLE_USER" %}
+							Client
+
+						{% elseif role == "ROLE_ARCHITECTE" %}
+							Architecte
+
+						{% elseif role == "ROLE_ADMIN" %}
+							Administrateur
+						{% elseif role == "ROLE_SUPER_ADMIN" %}
+							root
+
+						{% endif %}
+
+					</p>
+
+				{% endfor %}
+
+				<ul class="list-group list-group-unbordered mb-3">
+					<li class="list-group-item">
+						<b>
+							Nom
+						</b>
+						<a class="float-right">
+							{{ app.user.pseudo }}
+						</a>
+					</li>
+                    <li class="list-group-item">
+						<b>
+							Prenoms
+						</b>
+						<a class="float-right">
+							{{ app.user.prenoms }}
+						</a>
+					</li>
+					<li class="list-group-item">
+						<b>
+							Adresse
+						</b>
+						<a class="float-right">
+							{{ app.user.adresse }}
+						</a>
+					</li>
+					{# <li class="list-group-item">
+						<b>
+							Numero de carte Bancaire
+						</b>
+						<a class="float-right">
+							{{ app.user.banque }}
+						</a>
+					</li> #}
+					<li class="list-group-item">
+						<b>
+							Telephone
+						</b>
+						<a class="float-right">
+							{{ app.user.tel }}
+						</a>
+					</li>
+{# 
+					<li class="list-group-item">
+						<b>
+							Pays
+						</b>
+						<a class="float-right">
+							{{ app.user.pays }}
+						</a>
+					</li> #}
+
+				</ul>
+
+			</div>
+		{% endif %}
+	</div>
+   </div> 
+
+
+		<div class="container">
+
+
+			<div class="col-md-auto">
+
+				<div class="container-fluid">
+
+					<div class="card">
+						<div class="card-body wizard-content">
+							<h4 class="card-title">
+							Mdifier Votre Profil
+							</h4>
+							<h6 class="card-subtitle"></h6>
+
+							<form action="{{ path('edit_my_profil',{'id':user. id}) }}" method="post">
+								<div class="form-row">
+
+
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											Nom
+
+										</label>
+										<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Enter votre" value=" {{ app.user.pseudo }}" required=""></div>
+								</div>
+								<div class="form-row">
+
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											<strong>Prénoms</strong>
+
+										</label>
+										<input type="text" class="form-control" id="prenoms" name="prenoms" placeholder="Entrer votre prenoms" value=" {{ app.user.prenoms}}" required="">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											Email
+
+										</label>
+										<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" value=" {{ app.user.email }}" required=""></div>
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											Votre Mot de Passe
+
+										</label>
+										<input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" value=" {{ app.user.password }}" required=""></div>
+
+
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											Adresse
+
+										</label>
+										<input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" value=" {{ app.user.adresse }}" required=""></div>
+
+									
+									<div class="form-group col-md-12">
+										<label for="inputName">
+											Télephone
+										</label>
+										<input type="text" class="form-control" id="tel" name="tel" placeholder="carte bancaire" value=" {{ app.user.tel }}" required=""></div>
+								</div>
+
+							</div>
+							<div class="form-group form-row">
+								<div class="col-md-12">
+									<label class="custom-control custom-checkbox checkbox-lg">
+										<input type="checkbox" class="custom-control-input" id="customCheck1">
+										<div class="custom-control-label" for="customCheck1">
+											<strong>
+												J'accepte
+
+												<a href="{{path('terme')}}" target="_blank">
+													les termes et conditions</strong>
+
+											</a>
+										</div>
+									</label>
+								</div>
+							</div>
+							
+							<div class="col-12">
+								<div class="d-flex flex-wrap justify-content-between align-items-center">
+
+									<button class="btn-one" type="submit">
+										Modifier le Profil
+
+									</button>
+								</div>
+							</div>
+                            <br>
+						</form>
+					</div>
+				</div>
+			
+		{% endblock %}

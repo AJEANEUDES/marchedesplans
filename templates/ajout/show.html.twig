@@ -1,0 +1,106 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Marché des Plans  Administration -- Voir les Types
+
+{% endblock %}
+
+{% block body %}
+	<h1>
+		Types
+
+	</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+
+				<a class="btn btn-primary" href="{{ path('admin_ajout_index') }}">
+					Revenir à la Liste
+
+				</a>
+            </div>
+            </br> </br>
+
+            <div class="col-md-2">
+				<a class="btn btn-twitter" href="{{ path('admin_type_edit', {'id': type.id}) }}">
+					Modifier
+
+				</a>
+            </div> 
+            </br> </br>
+
+            <div class="col-md-2">
+				<form method="post" action="{{ path('admin_type_delete', {'id': type.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ type.id) }}">
+					<button class="btn btn-danger">
+						Supprimer
+					</button>
+				</form>
+			</div>
+
+			<div class="col-md-6">
+
+				<div class="card">
+
+					<div class="card-body">
+						<h4 class="card-title m-b-0">
+							Détails
+
+
+						</h4>
+					</div>
+					<ul class="list-style-none">
+
+						<li class="card-body">
+							<a class="m-b-0 p-0">
+								<div class="d-flex no-block">
+									<i class="fa fa-check-circle w-30px m-t-5"></i>
+									<div>
+										<span class="font-bold">
+											ID
+
+
+										</span>
+										<span class="font-bold">
+											:
+
+
+										</span>
+										<span style="text-transform:uppercase;">
+											{{ type.id }}
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+
+						<li class="card-body">
+							<a class="m-b-0 p-0">
+								<div class="d-flex no-block">
+									<i class="fa fa-check-circle w-30px m-t-5"></i>
+									<div>
+										<span class="font-bold">
+											Titre
+
+
+										</span>
+										<span class="font-bold">
+											:
+
+
+										</span>
+										<span style="text-transform:uppercase;">
+											{{ type.libelle }}
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

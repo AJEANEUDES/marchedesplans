@@ -1,0 +1,63 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}Formulaires
+{% endblock %}
+
+{% block body %}
+	<h1>Formulaires</h1>
+
+	<table class="table table-striped projects table-bordered">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ formulaire.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ formulaire.nom }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ formulaire.email }}</td>
+			</tr>
+			<tr>
+				<th>Message</th>
+				<td>{{ formulaire.message }}</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>{{ formulaire.status }}</td>
+			</tr>
+			<tr>
+				<th>Ip</th>
+				<td>{{ formulaire.ip }}</td>
+			</tr>
+			
+			<tr>
+				<th>Created_at</th>
+				<td>{{ formulaire.createdAt ? formulaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Updated_at</th>
+				<td>{{ formulaire.updatedAt ? formulaire.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="row">
+		<div class="col-md-3">
+        <form>
+			<a class="btn btn-primary" href="{{ path('formulaires_index') }}">back to list</a>
+
+			<a class="btn btn-info" href="{{ path('formulaires_edit', {'id': formulaire.id}) }}">edit</a>
+
+			<form method="post" action="{{ path('formulaires_delete', {'id': formulaire.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formulaire.id) }}">
+				<button class="btn-danger">Supprimer</button>
+			</form>
+
+		</div>
+	</div>
+
+    <br><br><br>
+
+{% endblock %}

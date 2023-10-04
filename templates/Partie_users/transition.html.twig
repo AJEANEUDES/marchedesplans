@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Connexion
+
+{% endblock %}
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style3" style="background-image: url({{asset('new/images/resources/breadcrumb-bg-2.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title-s2 text-center">
+							<span>Mon Panier</span>
+							<h1>Panier</h1>
+						</div>
+						<div class="breadcrumb-menu float-left">
+							<ul class="clearfix">
+								<li>
+									<a href="{{path('index')}}">Accueil</a>
+								</li>
+								<li>
+									<a href="{{path('plan_list')}}">La Boutique</a>
+								</li>
+								<li>
+									<a href="{{path('plan_list')}}">Détail du plan</a>
+								</li>
+								<li class="active">Mon Panier</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+	<!--Start Checkout area-->
+	<section class="checkout-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="exisitng-customer">
+						<h5>Veuillez Créer un Compte ou vous Connecter avant d'ajouter un plan au panier<a href="{{path('app_login')}}">Cliquez donc ici</a>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	
+
+{% endblock %}

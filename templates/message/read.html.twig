@@ -1,0 +1,59 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %} Marché des Plans  Administration -- Messagerie
+{% endblock %}
+
+{% block body %}
+	{% include "message/reponse.html.twig" %}
+
+	<section class="container">
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div
+						class="card-body">{# <h4 class="card-title m-b-0">Recent Posts</h4> #}
+					</div>
+					<div class="comment-widgets scrollable">
+						<div class="d-flex flex-row comment-row m-t-0">
+
+							<div class="p-2"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="50"></div>
+							<div class="comment-text w-100">
+								<h6 class="font-medium">Message de
+									{{ message.sender.email }}</h6>
+								<h6 class="font-medium">{{ message.titre }}</h6>
+								<span class="m-b-15 d-block">{{ message.message }}
+								</span>
+								<div class="comment-footer">
+									<span class="text-muted float-right">Le
+										{{ message.createdAt|date }}</span>
+
+
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+			<div class="offcanvas-header">
+				<h2 class="offcanvas-title" id="offcanvasExampleLabel">Mes dossiers</h2>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<div class="list-group">
+					<a href="{{ path("message") }}" class="list-group-item list-group-item-action">Accueil</a>
+				</div>
+				<div class="list-group">
+					<a href="{{ path("received") }}" class="list-group-item list-group-item-action active">Boîte de réception</a>
+				</div>
+				<div class="list-group">
+					<a href="{{ path("message") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
+				</div>
+			</div>
+		</div>
+	{% endblock %}

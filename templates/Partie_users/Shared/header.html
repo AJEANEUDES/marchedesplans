@@ -1,0 +1,131 @@
+<!--Start Mainmenu Style3 Area-->
+{# <header class="mainmenu-style3-area stricky" style="margin-top:none; background-color:">
+	<div class="container">
+		<div class="main-menu-box clearfix">
+			<nav class="main-menu style3 clearfix float-left">
+				<div class="navbar-header clearfix">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse clearfix">
+					<ul class="navigation clearfix current">
+						<li class="dropdown">
+								<div class="logo">
+									<a href="{{path('index')}}">
+										<img src="{{asset('new/images/resources/mdp.png')}}" width="75px" alt=" #">
+									</a>
+								</div>
+						</li>
+
+						<li class="dropdown ">
+							<a href="{{path('index')}}">Accueil</a>
+						</li>
+						<li onclick="Loadingclick()" class="dropdown">
+							<a onclick="testclick()" href="{{ path('plan_list') }}">
+								Maisons</a>
+						</li>
+						<li class="dropdown">
+							<a onclick="testclick()" href="{{path('about_us')}}">
+								Nous</a>
+						</li>
+
+						<li class="dropdown">
+							<a onclick="testclick()" href="{{path('faq')}}">FAQ</a>
+						</li>
+						<li class="dropdown">
+							<a onclick="testclick()" href="{{ path('contact') }}">Contact</a>
+						</li>
+
+						{% if  app.user and  (is_granted('ROLE_USER'))  %}
+							<li class="{% if app.request.get('_route') == 'cart_index' %} active {% endif %}">
+							
+								<a href="{{ path('cart_index') }}" class="cta cta-colored">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewbox="0 0 16 16">
+										<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+									</svg>
+														({{ app.session.get('panier')|length }})
+
+								</a>
+
+									
+								
+							</li>
+						
+
+						{% endif %}
+
+						<li class="dropdown">
+							{% if  app.user and  (is_granted('ROLE_USER')) %}
+								<li class="{% if app.request.get('_route') == 'listes_mes_achats' %} active {% endif %}">
+									<a onclick="testclick()" href="{{ path('listes_mes_achats') }}">
+										{% trans %}
+										 Achats
+
+										{% endtrans %}
+									</a>
+								</li>
+
+							{% endif %}
+
+							{% if app.user and  (is_granted('ROLE_ADMIN') or is_granted('ROLE_ARCHITECTE') or is_granted('ROLE_SUPER_ADMIN')) %}
+								<li class="{% if app.request.get('_route') == 'architecte_dashboard' %} active {% endif %}">
+									<a onclick="testclick()" href="{{ path('architecte_dashboard') }}">
+										{% trans %}
+										Compte
+
+										{% endtrans %}
+									</a>
+								</li>
+
+							{% endif %}
+
+						</li>
+
+						{% if app.user and (is_granted('ROLE_USER')) %}
+							<li class=" dropdown"></li>
+							<li class="{% if app.request.get('_route') == 'edit_my_profil' %} active {% endif %}">
+								<a onclick="testclick()" href="{{ path('edit_my_profil',{'id': app.user.id}) }}">
+									{% trans %}
+									<i class="fa fa-user"></i>
+									{% endtrans %}
+								</a>
+
+							</li>
+						</li>
+					{% endif %}
+
+					<li classs="dropdown">
+
+								{% if app.user %}
+									<a href="{{ path('app_logout') }}" style="font-size: 20px; font-weight: 300;">
+
+										<i class="fa fa-power-off m-r-5 m-l-5" style="color:#fff;"></i>
+
+												
+									</a>
+
+								{% else %}
+
+									{% if app.request.attributes.get('_route') == 'app_login' %}
+										{% else %}
+											<a href="{{ path('app_login') }}" style="font-size: 20px; font-weight: 300;">
+													<i class="fa fa-user" style="font-size: 20px; font-weight: 300;">
+														Connexion | Inscription
+													</i>
+
+
+											</a>
+									{% endif %}
+
+								{% endif %}
+					</li>
+
+
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div></header> #}

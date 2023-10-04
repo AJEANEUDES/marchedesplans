@@ -1,0 +1,117 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Marché Des Plans - Nous Contacter
+{% endblock %}
+
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+
+							<h1>Nous Contacter</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+
+	<!--Start Contact details Area-->
+	<section class="contact-details-area">
+		<div class="sec-title text-center">
+			<p>Contact Détails</p>
+			<div class="title clr-white" style="color:black">Contactez nous pour<span>
+					d'Autres requêtes</span>
+			</div>
+		</div>
+		<div class="parallax-background" style="background-image:url{{asset('(new/images/parallax-background/contact-details-bg.html)')}};"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="contact-details-content wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1200ms">
+
+						<div class="row">
+							<div class="col-xl-6 col-lg-6">
+								<div class="content-info-box" style="background-image:url{{asset('(new/images/parallax-background/contact-info-box-bg.jpg)')}};">
+									<div class="inner-content">
+										<div class="inner">
+											<div class="col-xl-12">
+												<div class="google-map-box">
+													<div class="google-map">
+														<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.89912654989726!2d1.1751944933669773!3d6.212712681922712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102159cbe9ea0da1%3A0xb51bb3468b659343!2sZOE%20CREATION%20%2F%20EASY%20PRO%20SERVICES!5e0!3m2!1sfr!2stg!4v1646103349767!5m2!1sfr!2stg" width="500" height="475" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6">
+								<div class="contact-details-form-box">
+									<div class="title-box">
+										<h2>
+											Votre Message</h2>
+									</div>
+									
+									<div class="contact-details-box">
+										 {{ include('messages.html.twig') }}
+										{# <form name="formulaires" action="" method="post" role="form" class="contact-details-form">
+											<div class="row">
+												<div class="col-xl-6">
+													<div class="single-box">
+														<input type="text" name="formulaires[nom]" id="formulaires_nom" value="" placeholder="Votre Nom" required="">
+													</div>
+												</div>
+												<div class="col-xl-6">
+													<div class="single-box">
+														<input type="email" name="formulaires[email]" id="formulaires_email" value="" placeholder="Votre Email" required="">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-xl-12">
+													<div class="single-box">
+														<textarea name="formulaires[message]" id="formulaires_message" placeholder="Votre Message" required=""></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xl-12">
+													<div class="single-box">
+														<input type="hidden" id="formulaires__token" name="formulaires[_token]" value="53pd8QlhBrw7oM76pGgiwXjTYNeraPluYZy8VZ9CqzI" />
+														<input type="hidden" name="token" value="{{csrf_token('form-formulaires')}}" />
+														<button  class="btn-one" type="submit">Soumettre<span class="flaticon-next"></span>
+														</button>
+													</div>
+												</div>
+											</div>
+										</form> #}
+										{{ form_start(form)}}
+										{{ form_end(form) }}
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,325 @@
+
+
+
+{# 
+
+{{ form_start(registrationForm) }}
+{{ form_row(registrationForm.email) }}
+{{ form_row(registrationForm.plainPassword, {
+        label: 'Password'
+    }) }}
+{{ form_row(registrationForm.agreeTerms) }}
+
+
+
+<button type="submit" class="btn">
+    Register
+</button>
+{{ form_end(registrationForm) }} #}
+    
+
+<!DOCTYPE html>
+<html dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+        <title>
+            Matrix Template - The Ultimate Multipurpose admin template
+        </title>
+        <!-- Custom CSS -->
+
+        <link href=" {{ asset('Admin/dist/css/style.min.css') }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+        <body>
+            
+            <!-- ============================================================== -->
+            <!-- Preloader - style you can find in spinners.css -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Login box.scss -->
+            <!-- ============================================================== -->
+                <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-white"> <div class="auth-box bg-dark border-top border-secondary">
+                    <div>
+                        <div class="text-center p-t-20 p-b-20">
+                            <span class="db">
+                                <img src="assets/images/logo.png" alt="logo" />
+                            </span>
+                        </div>
+                        <!-- Form -->
+                    {# {{ form_start(registrationForm) }}
+                        <div class="row p-b-30">
+                            <div class="col-12">                           
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-success text-white" id="basic-addon1">
+                                            <i class="ti-user"></i>
+                                        </span>
+                                    </div>
+                                    {{ form_widget(registrationForm.pseudo, {'attr': {  'type':'text','class': 'form-control form-control-lg','aria-label':'Username','placeholder': 'votre pseudo' }}) }}                    
+
+                                </div>
+
+                                
+                                <!-- email -->
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1">
+                                            <i class="ti-email"></i>
+                                        </span>
+                                    </div>
+                                    {{ form_widget(registrationForm.email, {'attr': {  'type':'text','class': 'form-control form-control-lg','aria-label':'Username','placeholder': 'votre mail' }}) }}                    
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-warning text-white" id="basic-addon2">
+                                            <i class="ti-pencil"></i>
+                                        </span>
+                                    </div>
+                                    {{ form_widget(registrationForm.plainPassword, {'attr': {  'type':'text','class': 'form-control form-control-lg','aria-label':'Password','placeholder': 'votre mot de passe'  }}) }}                    
+                                </div>
+                                <div class="input-group mb-3">
+                                   
+                                    {{ form_widget(registrationForm.roles, {'attr': {  'class': 'form-control form-control-lg' }}) }}                    
+                                </div>
+
+                                <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-info text-white" id="basic-addon2">
+                                        <i class="ti-country"></i>
+                                    </span>
+                                </div>
+                                {{ form_widget(registrationForm.pays, {'attr': {  'class': 'form-control form-control-lg','aria-label':'Pays','placeholder': 'votre pays '  }}) }}                    
+                            </div>
+                            <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-info text-white" id="basic-addon2">
+                                acceptez vous les termes ????
+                                </span>
+                            </div>
+                            {{ form_widget(registrationForm.agreeTerms, {'attr': {  'class': 'form-control form-control-lg'}}) }}                    
+                        </div>
+                            </div>
+                        </div>
+                        <div class="row border-top border-secondary">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="p-t-20">
+                                        <button class="btn btn-block btn-lg btn-info" type="submit">
+                                            Sign Up
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{ form_end(registrationForm) }} #}
+
+
+                        <form action="#" method="post">
+                        <input class="text" type="text" name="pseudo" placeholder="Pseudo" required="">
+                        <input class="text email" type="email" name="email" placeholder="Email" required="">
+                        <input class="text" type="password" name="password" placeholder="Password" required="">
+                        <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+                        <select class="browser-default custom-select"  id="userlist" name="userlist">
+
+                                 <option value="R3">Client</option> 
+
+                                <option value="R2">Architecte</option>
+                        
+                    </select>	
+                        
+                        <div class="wthree-text">
+                            <label class="anim">
+                                <input type="checkbox" class="checkbox" required="">
+                                <span>I Agree To The Terms & Conditions</span>
+                            </label>
+                            <div class="clear"> </div>
+                        </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+
+                    </form>
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- All Required js -->
+        <!-- ============================================================== -->
+
+        <script src="{{ asset('Admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="{{ asset('Admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('Admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <!-- ============================================================== -->
+    <!-- This page plugin js -->
+<!-- ============================================================== -->
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$(".preloader").fadeOut();
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table">
+<thead class="table-dark">
+    <tr>
+        <th>
+            Titre                                            
+                                                                                                                                
+                                                                                        
+                                                
+        </th>
+
+        <th>
+            Prix
+                                                                                                                                
+                                                                                        
+                                                
+        </th>
+
+        <th>
+            Nos Moyens de Payement                                                          
+                                                                                                                                
+                                                                                        
+                                                
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {% for miniplan in plans.miniplans %}
+        <tr>
+            <td>
+                {{ miniplan.titre }}
+            </td>
+            <td>
+                {{ miniplan.prix }}
+            </td>
+            {% include "Partie_users/Shared/transaction.html.twig" %}
+            {% include "Partie_users/Shared/payzy.html.twig" %}
+            {% include "Partie_users/Shared/stripe.html.twig" %}
+
+            <td>
+                {# <a href="{{ path('achat',{'id':plan. id,'id1':miniplan. id}) }}" class="primary-btn">
+                                                                                                                                                        PAYZY
+                                                                                                                                                                        
+                                                                                                                                                    </a> #}
+
+                <button data-toggle="modal" data-target="#payzy" class="primary-btn">
+                    PAYZY
+                                                                    
+                </button>
+
+                {# <a href="{{ path('achat2',{'id':plan. id,'id1':miniplan. id}) }}" class="primary-btn">
+                                                                                                            payg
+                                                                                                                                                                            
+                                                                                                                                                        
+                                                                                                        </a> #}
+
+                {# <pre>
+                                                                                                                                                        {{ dump(miniplan.getAchats()) }}
+                                                                                                                                                    </pre> #}
+                {# {% if miniplan.getAchats().getTxreference() == null  or  miniplan.achats.etat == "en cours"  %} #}
+                {# <button data-toggle="modal" data-target="#trans{{ miniplan.id }}" class="primary-btn">
+                                                                                                                                                    Recharger
+                                                                                                                                                                    
+                                                                                                                                                    </button> #}
+
+                {# <a href="{{ path('achat4',{'id':plan. id,'id1':miniplan. id}) }}" class="primary-btn">
+                                                                                                                                                        Recharger
+                                                                                                                                                                        
+                                                                                                                                                    </a> #}
+
+                {# {% else %} #}
+                    <button data-toggle="modal" data-target="#trans{{ miniplan.id }}" class="primary-btn"> PAYGATE
+                                                                    
+                </button>
+                {# <a href="{{ path('payement36') }}" class="primary-btn">                                                                                             recharger
+                                                              </a> #}
+
+                {# {% endif %} #}
+
+                {# <button class="btn btn-primary" data-toggle="modal" data-target="#trans{{ plan.id }}">
+                                                                                                            Stripe
+                                                                                                                                                        
+                                                                                                        </button> #}
+
+                    <form action="/checkout" method="POST"> <input class="form-control" id="id_mini" name="id_mini" value="{{ miniplan.id }}" hidden required>
+                        <input class="form-control" id="id_plan" name="id_plan" value="{{ plan.id }}" hidden required>
+                            <button type="submit" class="primary-btn">
+                                STRIPE
+                                                                                        
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+</tbody>
+</table>

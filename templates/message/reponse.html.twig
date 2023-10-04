@@ -1,0 +1,41 @@
+<div class="modal fade" id="trans{{message.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">
+					Repondre
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" style="color: black;">
+				<form action="{{ path('repondre_message') }}" method="POST">
+					
+					<div class="form-group">
+						<label for="phone_number">Message</label>
+						<input  class="form-control" id="id_recipient"  name="id_recipient"    value="{{ message.recipient.id }}"  required>
+						<pre>
+							{{ dump( message.sender.id) }}
+							{{ dump( message.recipient.id) }}
+						</pre>
+						
+						<input  class="form-control" id="id_sender"  name="id_sender"    value="{{ message.sender.id }}"   required>
+					</div>
+					<div class="form-group"> 
+		
+						{# <label  id="amount"  name="amount">{{ miniplan.prix }}</label> #}
+					</div>
+					<div class="form-group">
+				<textarea class="form-control" id="message" name="message" rows="3"></textarea>
+
+					</div>
+					<button type="submit" class="btn btn-primary">Envoyer</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+			</div>
+		</div>
+	</div>
+</div>

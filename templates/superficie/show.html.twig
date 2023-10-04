@@ -1,0 +1,51 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+    Marché des Plans  Administration --Informations sur la superficie
+    
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Superficie
+    </h1>
+
+    <table class="table table-striped projects">
+        <tbody>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <td>
+                    {{ superficie.id }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Nombre de Lots
+                </th>
+                <td>
+                    {{ superficie.nombredelots }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-2">
+
+            <a  classhref="{{ path('superficie_index') }}">
+                Revenir à la liste
+            </a>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ path('superficie_edit', {'id': superficie.id}) }}">
+               Modifier
+            </a>
+        </div>
+        <div class="col-md-2">
+            {{ include('superficie/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

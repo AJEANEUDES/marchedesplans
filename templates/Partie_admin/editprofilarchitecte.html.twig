@@ -1,0 +1,226 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Modifier le Profil
+
+
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('Admin/assets/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/assets/libs/jquery-steps/steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/dist/css/style.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+	{% if app.user %}
+		<div class="card-body box-profile">
+			<div class="text-center">
+					<i class="ti-user m-r-5 m-l-5">
+						Mon Profil
+					</i>
+				</div>
+			<h3 class="profile-username text-center">
+				{{ app.user.username }}
+			</h3>
+
+			{% for role in user.roles %}
+
+				<p class="text-muted text-center">
+					{# {% if role == "ROLE_USER" %}
+						Client #}
+
+					{% if role == "ROLE_ARCHITECTE" %}
+						Architecte
+
+					{% elseif role == "ROLE_ADMIN" %}
+						Administrateur
+					{% elseif role == "ROLE_SUPER_ADMIN" %}
+						root
+
+					{% endif %}
+
+				</p>
+
+			{% endfor %}
+
+			<ul class="list-group list-group-unbordered mb-3">
+				<li class="list-group-item">
+					<b>
+						Nom
+					</b>
+					<a class="float-right">
+						{{ app.user.pseudo }}
+					</a>
+				</li>
+				 <li class="list-group-item">
+						<b>
+							Prenoms
+						</b>
+						<a class="float-right">
+							{{ app.user.prenoms }}
+						</a>
+					</li>
+					<li class="list-group-item">
+						<b>
+							Email
+						</b>
+						<a class="float-right">
+							{{ app.user.email }}
+						</a>
+					</li>
+				<li class="list-group-item">
+					<b>
+						Adresse
+					</b>
+					<a class="float-right">
+						{{ app.user.adresse }}
+					</a>
+				</li>
+				{# <li class="list-group-item">
+					<b>
+						Numero de carte Bancaire
+					</b>
+					<a class="float-right">
+						{{ app.user.banque }}
+					</a>
+				</li> #}
+				<li class="list-group-item">
+					<b>
+						Telephone
+					</b>
+					<a class="float-right">
+						{{ app.user.tel }}
+					</a>
+				</li>
+
+				{# <li class="list-group-item">
+					<b>
+						Pays
+					</b>
+					<a class="float-right">
+						{{ app.user.pays }}
+					</a>
+				</li> #}
+
+			</ul>
+
+		</div>
+	{% endif %}
+
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+
+	<!-- ============================================================== -->
+	<!-- Bread crumb and right sidebar toggle -->
+	<!-- ============================================================== -->
+
+	<!-- ============================================================== -->
+	<!-- End Bread crumb and right sidebar toggle -->
+	<!-- ============================================================== -->
+	<!-- ============================================================== -->
+	<!-- Container fluid  -->
+	<!-- ============================================================== -->
+		<div class="container-fluid"> <!-- ============================================================== -->
+		<!-- Start Page Content -->
+		<!-- ============================================================== -->
+			<div class="card"> <div class="card-body wizard-content">
+				<h4 class="card-title">
+					Editer Profil
+				</h4>
+				<h6 class="card-subtitle"></h6>
+
+				<form action="{{ path('architecte_edit_my_profil',{'id':user. id}) }}" method="post">
+					<div class="form-row">
+
+
+						<div class="form-group col-md-12">
+							<label for="inputName">
+								Nom
+
+							</label>
+							<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrer votre nom" value=" {{ app.user.pseudo }}" required=""></div>
+					</div>
+
+					<div class="form-row">
+
+						<div class="form-group col-md-12">
+							<label for="inputName">
+								<strong>Prénoms</strong>
+
+							</label>
+							<input type="text" class="form-control" id="prenoms" name="prenoms" placeholder="Entrer votre prenoms" value=" {{ app.user.prenoms }}"  required="">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label for="inputName">
+								Email
+
+							</label>
+							<input type="email" class="form-control" id="email" name="email" placeholder="Entrer votre email address" value=" {{ app.user.email }}" required=""></div>
+						<div class="form-group col-md-12">
+							<label for="inputName">
+								Votre mot de passe
+							</label>
+							<input type="password" class="form-control" id="password" name="password" placeholder="Entrer votre mot de passe" value=" {{ app.user.password }}" required=""></div>
+					</div>
+
+					<div class="form-group col-md-12">
+						<label for="inputName">
+							Adresse
+
+						</label>
+						<input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" value=" {{ app.user.adresse }}" required=""></div>
+				</div>
+{# 
+				<div class="form-group col-md-12">
+					<label for="inputName">
+						Numero de carte Bancaire
+
+					</label>
+					<input type="text" class="form-control" id="banque" name="banque" placeholder="carte bancaire" value=" {{ app.user.banque }}" required=""></div>
+			</div> #}
+			<div class="form-group col-md-12">
+				<label for="inputName">
+					Télephone
+				</label>
+				<input type="text" class="form-control" id="tel" name="tel" placeholder="téléphone" value=" {{ app.user.tel }}" required=""></div>
+		</div>
+
+
+		<div class="form-group form-row">
+			<div class="col-md-12">
+				<label class="custom-control custom-checkbox checkbox-lg">
+					<input type="checkbox" class="custom-control-input" id="customCheck1">
+					<div class="custom-control-label" for="customCheck1">
+						J'accepte
+
+						<a href="{{path('terme')}}" target="_blank">
+							les termes et les conditions
+
+						</a>
+					</div>
+				</label>
+			</div>
+		</div>
+		<hr class="mt-3 mb-4">
+		<div class="col-12">
+			<div
+				class="d-flex flex-wrap justify-content-between align-items-center">
+				
+				<button class="btn btn-primary mt-3 mt-sm-0" type="submit">
+					Modifier profil
+
+				</button>
+			</div>
+		</div>
+	</form>
+
+{% endblock %}

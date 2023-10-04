@@ -1,0 +1,199 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Les Plans
+
+
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+	<div class="col-12 d-flex no-block align-items-center">
+		<div class="col-lg-3 col-md-5"></div>
+		<h4 class="page-title">
+			Listes des Plans
+
+
+		</h4>
+		<div class="ml-auto text-right">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+
+						{% include "Partie_admin/Shared/withdrawal.html.twig" %}
+
+
+						{% if app.request.attributes.get('_route') == 'miniplans_index' %}
+
+
+							{% if list_des_achats  %}
+								{% if (list_des_achats|length) >=1  %}
+
+
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withdrawal">
+										<span class="badge badge-light">{{list_des_achats|length}}</span>
+										Demande de retrait
+									</button>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+
+
+						{% if is_granted('ROLE_ARCHITECTE') %}
+
+							{% if app.request.attributes.get('_route') == 'mini_plan_show' %}
+
+
+								<a class="btn btn-dropbox" href="{{ path('Ajout_un_miniplan',{'id': plan.id}) }}">
+									Ajouter un plan
+
+
+								</a>
+
+							{% elseif app.request.attributes.get('_route') == 'miniplans_index' %}
+
+								<a class="btn btn-dropbox" href="{{ path('miniplans_new') }}">
+									Ajouter un plan
+
+
+								</a>
+
+							{% endif %}
+						{% endif %}
+
+					</li>
+
+				</ol>
+			</nav>
+		</div>
+	</div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+
+							<table id="zero_config" class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										
+										<th>
+											Titre
+
+
+										</th>
+										<th>
+											Maison
+
+
+										</th>
+										<th>
+											Nombre de vente
+
+
+										</th>
+									
+										<th>
+											actions
+
+
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for miniplan in miniplans %}
+										{% if miniplan.user.id == app.user.id %}
+
+										<tr>
+											{# <td>
+												{{ miniplan.id }}
+											</td> #}
+											<td>
+												{{ miniplan.titre }}
+											</td>
+											<td>
+												{{ miniplan.plans.titre }}
+											</td>
+
+
+											<td>
+												{% if miniplan.user.id == app.user.id %}
+													{% if miniplan.getVente() %}
+														{{ miniplan.getVente() }}
+
+													{% else %}
+														0
+													{% endif %}
+												{% endif %}
+
+
+											</td>
+
+										
+
+											<td>
+											
+												{% if  is_granted('ROLE_ARCHITECTE') %}
+
+													{% if miniplan.user.id == app.user.id %}
+														<a class="btn btn-success" href="{{ path('miniplans_edit', {'id': miniplan.id}) }}">
+															Modifier
+
+
+														</a>
+
+														<a class="btn btn-primary" href="{{ path('miniplans_show', {'id': miniplan.id}) }}">
+															voir
+														</a>
+														{% for fichier in miniplan.fichiers %}
+															<a class="btn btn-success" href="{{ asset('/pdf/' ~ fichier.nom) }}">
+																Télécharger le Plan
+
+
+															</a>
+														{% endfor %}
+
+
+														{% include "Partie_admin/Shared/listdesachatplan.html.twig" %}
+
+
+														<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trans{{ miniplan.id }}">
+															liste des achats
+														</button>
+
+
+													{% endif %}
+												{% endif %}
+
+											</td>
+										</tr>
+												{% endif %}
+									
+									{% else %}
+										<tr>
+											<td colspan="3">
+												Aucun achat sur ce plan
+
+
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	{% block javascripts %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,179 @@
+﻿{% extends "base.html.twig" %}
+{% block title %}
+	Liste des Plans
+
+{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<div class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Liste des Plans
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--End breadcrumb area-->
+
+
+	<!--Start cart area-->
+	<div class="cart-area">
+		<div class="container">
+			<div class="row">
+				<h4 style="color:#fff;text-align:center; font-weight:bold;">
+					<span class="badge badge-success">
+						{{plan.titre}}
+					</span>
+				</h4>
+				<br><br>
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<div class="table-outer">
+						<table class="cart-table">
+							<thead class="cart-header" style="background-color:#000;">
+								<tr style="color:#fff;">
+
+									<th>
+										Titre du Plan
+									</th>
+									<th>
+										Prix(XOF)
+									</th>
+									{{ include('messages.html.twig') }}
+									{% if app.user %}
+										{% if plan.user.id != app.user.id %}
+											<th>
+												Payements Mobile
+											</th>
+											<th>
+												Payements En Ligne
+											</th>
+										{% endif %}
+									{% else %}
+										<th>
+											Payements Mobile
+										</th>
+										<th>
+
+											Panier
+										</th>
+									{% endif %}
+								</tr>
+							</thead>
+							<tbody>
+
+								{% for miniplan in plan.miniplans %}
+									<tr>
+										{% include "Partie_users/Shared/transaction.html.twig" %}
+										{% include "Partie_users/Shared/modal.html.twig" %}
+
+
+										<td class="shoping__cart__item">
+											<img src="img/cart/cart-1.jpg" alt="">
+											<h5>
+
+												<span class="badge badge-danger">
+													{{ miniplan.titre }}
+												</span>
+											</h5>
+										</td>
+										<td class="shoping__cart__price">
+											<span class="badge badge-success">
+												{{ miniplan.prix }}
+											</sapn>
+										</td>
+										<td class="shoping__cart__quantity">
+											{% if app.user %}
+												{% if miniplan.user.id != app.user.id %}
+
+													<button data-toggle="modal" data-target="#trans{{ miniplan.id }}" class="btn btn-danger">
+														PAYER MAINTENANT
+
+													</button>
+												</td>
+												<td class="shoping__cart__item__close">
+
+													<a href="{{path("cart_add", {id: miniplan.id})}}" class="btn btn-danger">
+														<i class="bi bi-cart-plus"></i>
+														AJOUTER AU PANIER
+													</a>
+
+												{% endif %}
+
+											{% else %}
+
+												<button data-toggle="modal" data-target="#trans{{ miniplan.id }}" class="btn btn-danger">
+													PAYER MAINTENANT
+
+												</button>
+											</td>
+										</td>
+										<td class="shoping__cart__item__close">
+
+											<a href="{{path("cart_add", {id: miniplan.id})}}" class="btn btn-danger">
+												<i class="bi bi-cart-plus"></i>
+												AJOUTER AU PANIER
+											</a>
+										</td>
+									{% endif %}
+
+								{% else %}
+
+									{% if app.request.attributes.get('_route') == 'app_login' %}
+										{% else %}
+
+											<button data-toggle="modal" data-target="#trans{{ miniplan.id }}" class="btn btn-danger">
+												PAYER MAINTENANT
+
+											</button>
+
+									{% endif %}
+
+
+								</tr>
+							</tbody>
+						</td>
+
+					{% endfor %}
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="update-cart pull-Right" style="text-align:center;">
+		<a class=" btn btn-danger" href="{{path('plan_list')}}">
+			Boutique des Maisons
+		</a>
+	</div>
+
+	<script>
+		$("button").click(function () {
+swal({title: "En cours de validation!", text: "Votre requête de paiement est en cours d'exécution. <br> Veuillew patienter s'il voous plait", timer: 12000, showConfirmButton: false});
+});
+	</script>
+
+	{# <!--Start post pagination-->
+								
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+										<ul class="post-pagination text-center">
+											{{ knp_pagination_render(affichage) }}
+										</ul>
+									</div>
+									
+								<!--End post pagination--> #}
+
+	<!--End cart area-->
+
+
+{% endblock %}

@@ -1,0 +1,131 @@
+		{# Celui du User controller : fonction de paiement par Paygate #}
+
+
+{% if app.request.attributes.get('_route') == 'liste_des_mini_plan' %}
+
+
+	<div class="modal fade" id="trans{{miniplan.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">
+						Formulaire pour effectuer une Transaction
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="color: black;">
+					{{ include('messages.html.twig') }}
+
+					<form action=" {{ path('achat4', {'id1':miniplan. id,'id':plan. id,}) }} " method="POST">
+						<div class="form-group">
+							<label for="network">
+								<span class="badge" style="font-size:15px">Moyen de Payement</span>
+							</label>
+							<select class="form-control" id="network" name="network" required>
+								<option>FLOOZ
+								</option>
+								<option>TMONEY</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="phone_number">Téléphone</label>
+							<input type="tel" class="form-control" id="phone_number" min="8" max="8" name="phone_number" aria-describedby="emailHelp" placeholder="ex: 9XXXXXX ou 7XXXXXXX" required>
+							<input class="form-control" id="id_mini" name="id_mini" value="{{ miniplan.id }}" hidden required>
+							<input class="form-control" id="id_plan" name="id_plan" value="{{ plan.id }}" hidden required>
+						</div>
+
+						<div class="form-group">
+
+							<label for="amount">Vous devez envoyer
+								<span class="badge badge-warning" style="font-size:30px">
+									{{ miniplan.prix }}</span>F CFA  à l'entreprise ZOE-TECH pour le payement du plan
+								<span class="badge badge-danger">
+									{{ miniplan.titre }}</span>
+							</label>
+							{# <label  id="amount"  name="amount">{{ miniplan.prix }}</label> #}
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="identifier" value="{{ random() - 2 }}" name="identifier" hidden required>
+						</div>
+						<button type="submit" class="btn btn-danger">Valider</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+		{# Celui du Cart controller : fonction de paiement par Paygate #}
+
+{% elseif app.request.attributes.get('_route') == 'cart_index' %}
+
+
+	<div class="modal fade" id="paygate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">
+						Formulaire pour effectuer une Transaction
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="color: black;">
+				 {{ include('messages.html.twig') }}
+
+					<form action="{{ path('cart_achat4') }}" method="POST">
+						<div class="form-group">
+							<input class="form-control" id="amount" name="amount" value="{{total}}" hidden required>
+
+							<label for="network">
+								<span class="badge" style="font-size:15px">Moyen de Payement</span>
+							</label>
+							<select class="form-control" id="network" name="network" required>
+								<option>FLOOZ
+								</option>
+								<option>TMONEY
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="phone_number">Téléphone</label>
+							<input
+							type="tel" class="form-control" id="phone_number" min="8" max="8" name="phone_number" aria-describedby="emailHelp" placeholder="ex: 9XXXXXX ou 7XXXXXXX" required>
+					
+						</div>
+						<div class="form-group">
+
+							<label for="amount">Vous devez envoyer
+								<span class="badge badge-warning" style="font-size:30px">{{total}}
+								</span>F CFA  à l'entreprise ZOE-TECH pour les payements des plans
+
+								{% for element in dataPanier %}
+
+									<input class="form-control" id="id_mini" name="id_mini" value="{{ element.miniplan.id }}" hidden required>
+									<input class="form-control" id="id_plan" name="id_plan" value="{{ element.miniplan.plans.id }}" hidden required>
+									<span class="badge badge-danger">
+
+
+										{{ element.miniplan.titre }}</span>
+
+								{% endfor %}
+
+							</label>
+
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="identifier" value="{{ random() - 2 }}" name="identifier" hidden required>
+						</div>
+						<button type="submit" class="btn btn-danger">Valider</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+			
+{% endif %}

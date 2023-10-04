@@ -1,0 +1,374 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+
+{% block title %}
+Administration Marché des plans - Conditions d'Utilisation
+
+{% endblock %}
+
+{% block stylesheets %}
+
+<link href="{{ asset('Admin/assets/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/assets/libs/jquery-steps/steps.css') }}" rel="stylesheet">
+	<link href="{{ asset('Admin/dist/css/style.min.css') }}" rel="stylesheet">
+	
+	<style type="text/css">
+		{
+			-webkit-text-size-adjust: 100%;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			--animate-duration: 1s;
+			--animate-delay: 1s;
+			--animate-repeat: 1;
+			--blue: #1a2d50;
+			--indigo: #6610f2;
+			--purple: #6f42c1;
+			--pink: #e83e8c;
+			--red: #dc3545;
+			--orange: #fd7e14;
+			--yellow: #ffc107;
+			--green: #28a745;
+			--teal: #20c997;
+			--cyan: #17a2b8;
+			--white: #fff;
+			--gray: #6c757d;
+			--gray-dark: #343a40;
+			--primary: #c6a552;
+			--secondary: #6c757d;
+			--success: #28a745;
+			--info: #17a2b8;
+			--warning: #ffc107;
+			--danger: #dc3545;
+			--light: #f8f9fa;
+			--dark: #343a40;
+			--breakpoint-xs: 0;
+			--breakpoint-sm: 576px;
+			--breakpoint-md: 768px;
+			--breakpoint-lg: 992px;
+			--breakpoint-xl: 1200px;
+			--font-family-sans-serif: "Montserrat";
+			--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			text-align: left;
+			font-family: Montserrat;
+			color: #1a2d50;
+			box-sizing: border-box;
+			display: block;
+			padding-top: 30px;
+			flex: 1 0 auto;
+			margin-bottom: 50px;
+		}
+	</style>
+
+{% endblock %}
+
+{% block body %}
+
+	<!--Start breadcrumb area-->
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/resources/breadcrumb-bg.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Termes<br>
+								et Conditions</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+
+<main class="cgvu">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+            <br><br><br>
+				<h1>Conditions générales de vente et d'utilisation</h1>
+				<h2>PREAMBULE</h2>
+				<p>Les présentes conditions générales de ventes et d'utilisation s'appliquent à l'utilisation du site internet
+					<a href="/" target="_blank">Marché des plans</a>, ainsi qu'à l'ensemble des services qui y sont proposés par la Société.</p>
+				<p>Tout Utilisateur procédant à son inscription s'engage à les respecter.</p>
+				<h2>ARTICLE 1 – IDENTITES</h2>
+				<p>MARCHE DES PLANS est le nom commercial de la Société par actions simplifiées (SAS) ADMD, immatriculée au Registre du Commerce et des Société de PARIS, sous le numéro 835 029 794, dont le siège social est situé 127 rue Amelot 75011 PARIS.</p>
+				<p>Le site Internet
+					<a href="/" rel="noopener noreferrer" target="_blank">https://www.bienpense.com</a>
+					est édité par Mathieu Hugot, Auto entrepreneur dont le siège social est situé 4b rue de colmar à Dijon, inscrite au RCS de Dijon sous le numéro 52749121100027.</p>
+				<p>Le directeur de la publication du site internet est : M. Matthieu Dibaji</p>
+				<p>Le site Internet est hébergé par :
+					<a href="https://www.scaleway.com/" rel="noopener noreferrer" target="_blank">Scaleway</a>
+				</p>
+				<h2>ARTICLE 2 – DEFINITIONS</h2>
+				<p>Chaque terme débutant ci-après par une majuscule a le sens qui lui est donné dans sa définition.</p>
+				<h3>Archis</h3>
+				<p>Sont considérés comme Archis:</p>
+				<p>. Les architectes : les personnes physiques énumérées aux articles 10 et 11 de la loi n°77-2 du 3 janvier 1977 sur l'architecture, Les sociétés définies à l'article 12, ainsi que les personnes physiques admises à porter le titre d'agréé en architecture ou celui de détenteur de récépissé en application de l'article 37 de ladite loi et inscrites à un tableau régional d'architectes ou à son annexe.</p>
+				<p>. Les architectes d'intérieur et titulaires d'un cursus en architecture d'intérieur justifiant d'au moins 4 années d'études.</p>
+				<p>. Les diplômés en architecture: DPLG, DESA, DE-HMONP.</p>
+				<h3>Client</h3>
+				<p>Est considéré comme Client, toute personne physique ou morale, utilisant les services proposés par MARCHE DES PLANS, contre paiement du prix convenu.</p>
+				<h3>Commande</h3>
+				<p>Désigne toute commande de Service effectuée sur le
+					<a href="/" target="_blank">site internet</a>
+				</p>
+				<h3>Compte utilisateur : Archi</h3>
+				<p>Désigne l'espace personnel de l'Archi, accessible après identification protégée par mot de passe déterminé par celui-ci.</p>
+				<h3>Compte utilisateur : Client</h3>
+				<p>Désigne l'espace personnel du Client, accessible après identification protégée par mot de passe déterminé par celui-ci.</p>
+				<h3>Données à caractère personnel</h3>
+				<p>Désigne toute information concernant une personne physique ou morale, identifiée ou identifiable.</p>
+				<h3>Plan 3D</h3>
+				<p>Représentation d'un projet de conception au niveau "esquisse" réalisé par un Archi</p>
+				<p>Le plan 3D comprend&nbsp;:</p>
+				<ul>
+					<li>La prise de côtes sommaires du Lieu</li>
+					<li>La réalisation d'un visuel 3D du Lieu en l'état existant</li>
+					<li>La réalisation d'un visuel 3D du Lieu en projet</li>
+				</ul>
+				<p>Ce plan 3D ne peut être considéré comme un plan de construction et d'exécution.</p>
+				<p>La conception du plan 3D ne garanti pas l'obtention des éventuelles autorisations administratives ou de copropriétés pour lesquelles le Client devrait en obtenir les autorisations.</p>
+				<p>Pour exemple :</p>
+				<div class="row sketchs-example" data-featherlight-gallery="" data-featherlight-filter="a">
+					<div class="col-md-6">
+						<figure>
+							<a href="/dist/img/front/sketchs/existant.7b6bccf2.jpg"><img src="/dist/img/front/sketchs/existant.7b6bccf2.jpg" class="img-fluid" alt="Existant" title="Existant"><figcaption>Existant</figcaption>
+							</a>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure>
+							<a href="/dist/img/front/sketchs/projet.cd43692f.jpg"><img src="/dist/img/front/sketchs/projet.cd43692f.jpg" class="img-fluid" alt="Projet" title="Projet"><figcaption>Projet</figcaption>
+							</a>
+						</figure>
+					</div>
+				</div>
+				<h3>Identifiant</h3>
+				<p>Désigne l'identifiant personnel associé au compte de l'Utilisateur ainsi que le mot de passe déterminé par celui-ci, lui permettant de s'identifier afin d'accéder aux Services.</p>
+				<h3>Lieu</h3>
+				<p>Désigne l'emplacement précis au sein duquel la réalisation du plan 3D est prévue et dans lequel l'Archi et le Client se déplacent.</p>
+				<h3>Loi informatique et libertés</h3>
+				<p>Désigne la Loi n° 78-17 du 6 Janvier 1978 relative à l'informatique, aux fichiers et aux libertés, et modifiée par la loi n° 2004-801 du 6 août 2004.</p>
+				<h3>Parties</h3>
+				<p>Ensemble des Utilisateurs engagés contractuellement.</p>
+				<h3>Service</h3>
+				<p>Désigne le Service de prise de rendez-vous en ligne mis à disposition des Utilisateurs par Marché des Plans en vue de la réalisation d'un plan 3D dans un Lieu déterminé préalablement.</p>
+				<h3>Site</h3>
+				<p>Désigne le Site internet
+					<a href="{{path('index')}}" target="_blank">Marché des Plans</a>
+				</p>
+				<h3>Utilisateur</h3>
+				<p>Désigne toute personne utilisant le Site internet Marché des Plans et les Services proposés par ce dernier.</p>
+				<h2>ARTICLE 3 – OBJET</h2>
+				<p>Marché des Plans permet la mise en relation entre des Utilisateurs et des Archis inscrits sur le Site.</p>
+				<p>Les présentes conditions générales ont pour objet de déterminer les conditions et les modalités de vente et d'utilisation du Site et des Services proposés ainsi que de définir les droits et obligations des Parties.</p>
+				<p>Marché des Plans est libre de modifier, à tout moment, les présentes conditions générales de vente et d'utilisation en cas d'évolution légale, réglementaire ou jurisprudentielle.</p>
+				<p>La version applicable est celle qui est accessible en ligne à l'adresse suivante :
+					<a href="{{path('index')}}" target="_blank">https://www.marchedesplans.com</a>.</p>
+				<p>Tout Utilisateur doit donc se référer systématiquement, à la version accessible en ligne à la date de son accès et de son utilisation des Services.</p>
+				<h2>ARTICLE 4 – INSCRIPTION AU SERVICE</h2>
+				<h3>Conditions générales préalables</h3>
+				<p>Le Service est fourni sous réserve que l'Utilisateur accepte les présentes conditions générales de vente et d'utilisation.</p>
+				<p>Ce dernier est réputé avoir accepté les présentes conditions générales de vente et d'utilisation du simple fait de l'utilisation du Service, laquelle emporte automatiquement acceptation.</p>
+				<p>Les présentes conditions générales de vente et d'utilisation régissent les relations contractuelles entre Marché des Plans, le Client et l'Archi, qui les acceptent sans réserve.</p>
+				<p>Le Site et les Services proposés sont accessibles à tout Utilisateur disposant pleinement de la capacité juridique.</p>
+				<p>L'Utilisateur, personne physique agissant pour elle-même ou pour le compte d'une personne morale, déclare ainsi être majeur et capable, conformément aux dispositions des articles 414 et suivants du code civil.</p>
+				<h3>Inscription Client</h3>
+				<p>L'Utilisateur souhaitant recourir aux services de Marché des Plans détermine lui-même ses Identifiants lors de sa demande d'ouverture de compte, afin de lui permettre un accès sécurisé et personnel à son Compte-Utilisateur Client.</p>
+				<p>Lors de sa demande d'ouverture de son Compte Utilisateur, le Client remplit le formulaire en communiquant des informations vraies, exactes et complètes sur son identité et ses coordonnées.</p>
+				<p>Il s'engage notamment à ne pas créer une fausse identité de nature à induire Marché des Plans ou les Archis en erreur et à ne pas usurper l'identité d'une autre personne physique ou morale.</p>
+				<p>Le Client s'engage à mettre immédiatement à jour, les données qu'il a communiquées lors de son inscription, en cas de modification.</p>
+				<p>Marché des Plans se réserve le droit de refuser l'accès, de façon temporaire ou définitive, au Service, à tout Client ayant sciemment communiqué de fausses informations.</p>
+				<p>Lors de la création de son Compte-Utilisateur, le Client détermine ses Identifiants, dont il est seul responsable.</p>
+				<p>Il s'engage à conserver ses Identifiants secrets et à ne pas les divulguer sous quelque forme que ce soit.</p>
+				<p>En aucun cas, Marché des Plans ne peut être tenu responsable de la perte ou du vol des Identifiants du Client.</p>
+				<p>Tout accès et utilisation des Services et transmission effectués à partir du compte Utilisateur-Client sera réputé avoir été effectué par le Client.</p>
+				<p>Le Client s'assure qu'à l'issue de chaque utilisation du Service, il se déconnecte effectivement de son Compte-Utilisateur, en particulier lorsqu'il accède au Service à partir d'un ordinateur public.</p>
+				<p>Toute perte, détournement ou utilisation non autorisée des Identifiants d'un Client et leurs conséquences relèvent de la seule responsabilité de celui-ci.</p>
+				<p>Dans tous les cas mentionnés ci-dessus, le Client s'engage à en avertir Marché des Plans, sans délai, par message électronique, précisant ses Identifiants et coordonnées à l'adresse de messagerie suivante : contact@bienpense.com, afin que BIEN PENSÉ procède à la réinitialisation du compte Utilisateur.</p>
+				<p>Le Client peut à tout moment résilier la souscription de son Compte-Utilisateur en contactant Marché des Plans par courriel à l'adresse suivante : contact@bienpense.com</p>
+				<h3>Inscription Archis</h3>
+				<p>L'Archi souhaitant recourir aux services de Marché des Plans détermine lui-même ses Identifiants lors de sa demande d'ouverture de compte, afin de lui permettre un accès sécurisé et personnel à son Compte-Utilisateur Architecte.</p>
+				<p>Lors de sa demande d'ouverture de son compte Utilisateur, l'Archi remplit le formulaire en communiquant des informations vraies, exactes et complètes sur son identité, ses coordonnées, son justificatif de son diplôme, ses années d'expérience.</p>
+				<p>Il communique en outre, son attestation d'assurance de responsabilité civile professionnelle à jour, un extrait K-bis de sa Société ou une attestation URSSAF, un relevé d'identité bancaire et un extrait réel et sincère de ses meilleurs travaux réalisés dans le cadre de son activité par lui-même.</p>
+				<p>Il s'engage notamment à ne pas créer une fausse identité et à ne pas communiquer de fausses informations de nature à induire Marché des Plans ou les Clients en erreur et à ne pas usurper l'identité d'une autre personne physique ou morale. A ce titre une copie de sa carte d'identité ou de son passeport certifiée conforme à l'original lui est demandé lors de son inscription sur le site.</p>
+				<p>L'Archi s'engage à mettre immédiatement à jour, les données qu'il a communiquées lors de son inscription, en cas de modification.</p>
+				<p>Marché des Plans se réserve le droit de refuser l'accès, de façon temporaire ou définitive, au Service, à tout Archi ayant sciemment communiqué de fausses informations.</p>
+				<p>Lors de la création de son Compte-Utilisateur, l'Archi détermine ses Identifiants, dont il est seul responsable.</p>
+				<p>Il s'engage à conserver ses Identifiants secrets et à ne pas les divulguer sous quelque forme que ce soit.</p>
+				<p>En aucun cas, Marché des Plans ne peut être tenu responsable de la perte ou du vol des Identifiants de l'Archi.</p>
+				<p>Tout accès et utilisation des Services et transmission effectués à partir du compte Utilisateur-Archi sera réputé avoir été effectué par l'Archi.</p>
+				<p>L'Architecte s'assure qu'à l'issue de chaque utilisation du Service, il se déconnecte effectivement de son Compte-Utilisateur, en particulier lorsqu'il accède au Service à partir d'un ordinateur public.</p>
+				<p>Toute perte, détournement ou utilisation non autorisée des Identifiants d'un Archi et leurs conséquences relèvent de la seule responsabilité de celui-ci.</p>
+				<p>Dans tous les cas mentionnés ci-dessus, l'Archi s'engage à en avertir Marché des Plans, sans délai, par message électronique, précisant ses Identifiants et coordonnées à l'adresse de messagerie suivante : contact@bienpense.com, afin que Marché des Plans procède à la réinitialisation du compte Utilisateur.</p>
+				<p>L'Archi peut à tout moment résilier la souscription de son Compte-Utilisateur en contactant Marché des Plans par courriel à l'adresse suivante : contact@bienpense.com</p>
+				<h2>ARTICLE 5 – FORMATION DU CONTRAT ET OBLIGATIONS</h2>
+				<h3>Prise de rendez-vous</h3>
+				<p>Le Client peut, à tout moment, réserver en ligne un Archi de son choix en vue de la réalisation d'un plan 3D d'un Lieu déterminé.</p>
+				<p>Le Client sélectionne une date et un horaire de rendez-vous sur le Lieu de réalisation du plan 3D directement depuis le Site internet, en fonction des disponibilités préalablement renseignées en ligne par l'Archi.</p>
+				<p>Le Client autorise Marché des Plans à lui envoyer un courriel et/ou SMS afin de confirmer le rendez-vous.</p>
+				<p>Aucune prise de contact direct entre le Client et l'Archi n'est possible avant leur rencontre lors du rendez-vous.</p>
+				<p>Le Client est informé du fait que la prise d'un rendez-vous en ligne avec un Archi déterminé constitue un engagement ferme de sa part.</p>
+				<p>L'Archi s'engage à honorer le rendez-vous confirmé auprès du Client.</p>
+				<p>Toute non présentation à un rendez-vous confirmé doit faire l'objet d'une information préalable d'annulation ou de report auprès de l'Archi ou du Client concerné, dont les conditions sont prévues à l'article 8 ci-après reproduit.</p>
+				<h3>Obligations de l'Archi</h3>
+				<p>L'Archi se rend par ses propres moyens à la date et aux horaires convenus avec le Client, sur le Lieu de réalisation du plan 3D.</p>
+				<p>L'Archi reste sur le Lieu le temps raisonnable pour recueillir les informations nécessaires à la réalisation du plan 3D, soit un minimum d'une heure.</p>
+				<p>L'Archi prend ainsi le soin de s'entretenir personnellement avec le Client afin de déterminer ses attentes.</p>
+				<p>A l'issue de l'échange entre le Client et l'Archi, ce dernier recueille les données techniques indispensables à la réalisation de son plan 3D.</p>
+				<p>
+					<span style="color: rgb(26, 45, 80);">L'Archi est dans l'obligation de produire et d'envoyer au Client et à Marché des Plans (contact@marchédesplans.com) une fiche de visite (modèle défini par Bien Pensé) par email 24h maximum après le rdv passé.</span>
+				</p>
+				<p>L'Archi remet le plan 3D à Marché des Plans, dans un délai de 7 jours maximum (hors dimanche et jours fériés), à compter de son départ du Lieu.</p>
+				<p>L'Archi est dans l'obligation de produire et de remettre le
+					<span style="color: rgb(26, 45, 80);">plan 3D</span>
+					à Marché des Plans après avoir assisté à un rdv.</p>
+				<p>Le
+					<span style="color: rgb(26, 45, 80);">plan 3D</span>
+					est remis directement sur le Site, depuis le Compte-Utilisateur Archi, sous format numérique ne dépassant pas 2Mo par image et imprimable en format A4.
+				</p>
+				<p>
+					<span style="color: rgb(26, 45, 80);">L'Archi est dans l'obligation de produire et de remettre une facture au nom de SAS ADMD en même temps que la remise du plan 3D, pour prétendre à sa rémunération.</span>
+				</p>
+				<p>L'Archi s'engage à fournir une prestation de qualité, dans les délais impartis.</p>
+				<p>En cas de non remise du plan 3D, l'Archi, ne pourra prétendre à une quelconque rémunération, gratification, dédommagement ou indemnité et sera radié du Site de façon temporaire ou définitive par BIEN PENSÉ.</p>
+				<p>BIEN PENSÉ se réserve le droit de refuser et/ou de faire modifier un plan 3D par l'Archi mandaté par le Client, si ce dernier ne correspond pas aux modèles types présentés en exemples à l'article 2 ou si ce dernier ne correspond pas aux demandes du Client faites pendant le rendez-vous.</p>
+				<p>L'Archi déclare avoir souscrit à un régime d'assurance civile professionnelle au jour de la réalisation du Service.</p>
+				<p>L'Archi accepte de recevoir une notation du Client à l'issue de la remise du plan 3D, sur une échelle de 1 à 5 reposant sur trois critères, à savoir la ponctualité, la créativité et la qualité d'échange. Un commentaire personnel peut être librement rajouté par le Client, sans que l'Archi ne puisse y répondre.</p>
+				<h3>Obligations de Marché des plans</h3>
+				<p>Dès la réception du plan 3D sur son serveur informatique, Marché des plans s'engage à assurer la mise à disposition de celle-ci dans un délai de 4h00 sur le Compte-Utilisateur Client.</p>
+				<p>BIEN PENSÉ en informe expressément le Client par courriel.</p>
+				<p>Marché ddes Plans s'engage à conserver le plan 3D sur le Compte-Utilisateur du Client pendant une durée maximale de 3 ans.</p>
+				<h3>Obligations du Client</h3>
+				<p>Le Client déclare disposer des droits lui permettant l'accès au Lieu de réalisation du plan 3D et est en capacité d'en justifier sur simple demande de l'Archi ou de Marché ddes Plans.</p>
+				<p>Il s'engage à être présent et reçoit l'Archi au sein du Lieu à la date et aux horaires réservés en ligne, le temps nécessaire à la réalisation du plan 3D, soit un minimum d'une heure.</p>
+				<p>Le Client s'engage à valider par retour d'email à l'Archi
+					<span style="color: rgb(26, 45, 80);">et àMarché des pla(scontact@bienpense.com)
+					</span>la fiche de visite envoyée par l'Archi dans un délai de 24h maximum. Le Client est libre de proposer ses remarques. La fiche de visite est réputée validée en cas de non réponse dans les délais impartis.</p>
+				<p>Le Client télécharge et imprime lui-même le plan 3D remis et accessible sur son Compte-Utilisateur.</p>
+				<p>Le Client a la faculté de recommander de manière positive ou négative l'Archi directement depuis son Compte-Utilisateur.</p>
+				<p>Cette recommandation est anonyme et le Client s'engage à ce qu'elle soit sincère et raisonnable.</p>
+				<p>Le Client peut ainsi noter l'Archi sur une échelle de 0.5 à 5 sur trois critères, à savoir la ponctualité, la créativité et la qualité d'échange. Un commentaire personnel peut être librement rajouté par le Client, sans faculté pour l'Archi d'y répondre.</p>
+				<h2>ARTICLE 6 – PAIEMENT ET FACTURATION</h2>
+				<h3>Dispositions générales</h3>
+				<p>Toute commande de plan 3D par le Client se fait par paiement en ligne par carte bancaire.</p>
+				<p>BIEN PENSÉ utilise le service de paiement sécurisé fourni par la
+					<a href="https://www.ca-paris.fr/" target="_blank">société Crédit Agricole</a>.</p>
+				<p>Les données confidentielles, telles le numéro de carte bancaire, la date d'expiration et le code CVV, sont directement transmises cryptées sur le serveur de l'établissement bancaire,Marché des plans'ayant pas accès à ces données.</p>
+				<p>Le client est engagé par sa commande dès qu'il clique sur « Booker ».</p>
+				<p>Les tarifs sont indiqués sur le site en euros (€).</p>
+				<p>Les systèmes d'enregistrement automatique sont considérés comme valant preuve de la nature, du contenu et de la date de la Commande.</p>
+				<p>BIEN PENSÉ confirmera au Client l'acceptation de sa Commande par l'envoi d'un message de confirmation à l'adresse courriel que ce dernier aura communiquée. Chaque facture est mise en ligne directement sur le Compte-Utilisateur du Client.</p>
+				<p>BIEN PENSÉ se réserve le droit de refuser ou d'annuler toute Commande d'un Client notamment en cas d'insolvabilité dudit Client ou dans l'hypothèse d'un défaut de paiement de la Commande concernée ou d'un litige relatif au paiement d'une commande antérieure.</p>
+				<p>Les mentions indiquées par le client, lors de la saisie des informations inhérentes à sa Commande engagent celui-ci.</p>
+				<h3>Dispositions spécifiques</h3>
+				<p>Le Client transmet ses coordonnées bancaires dès la réservation du rendez-vous lorsqu'il clique sur « booker ».</p>
+				<p>Le compte-bancaire du Client n'est débité qu'à la remise du plan 3D par l'Archi, téléchargeable sur son Compte-Utilisateur Client.</p>
+				<p>En cas de non remise du plan 3D par l'Archi dans le délai de 7 jours imparti, le compte-bancaire du Client n'est pas débité.</p>
+				<p>BIEN PENSÉ reçoit une commission de 20 % TTC sur la totalité de la somme acquittée par le Client.</p>
+				<p>L'Archi ayant réalisé le plan 3D reçoit quant à lui 80 % TTC sur la totalité de la somme acquittée par le Client, une fois le plan 3D et sa facture remis sur son Compte-Utilisateur Archi.</p>
+				<p>Une fois le compte-bancaire du Client débité, Marché des plans réalise l'ordre de virement de la somme totale due à l'Archi, sur le compte-bancaire de celui-ci, dans un délai de 24h00.</p>
+				<h3>Tarifs</h3>
+				<p>La réalisation du plan 3D par l'Archi pour une pièce de maximum 40 mètres carrés est facturée 500 € TTC au Client.</p>
+				<p>Au-delà d'une pièce, un supplément de 100 € est facturé au Client, par pièce supplémentaire.</p>
+				<p>Ainsi pour un appartement de 3 pièces, le Client s'acquittera de la somme de 700 € TTC.</p>
+				<h2>ARTICLE 7 – ANNULATION / RETRACTATION</h2>
+				<h3>Dispositions générales</h3>
+				<p>Marché des plans ne saurait être en aucun cas tenu responsable d'une annulation ou d'une indisponibilité de l'Archi et/ou du Client.</p>
+				<p>L'annulation d'un rendez-vous par l'Archi ou par le Client s'effectue par le système d'annulation proposé par le Site.</p>
+				<p>Une confirmation de l'annulation est automatiquement envoyée par courriel aux Parties.</p>
+				<p>Les Parties reconnaissent être informées qu'elles assument pleinement les conséquences de leur non-présentation à un rendez-vous préalablement convenu.</p>
+				<p>Les parties sont également informées que si elles sont déclarées absentes par l'autre partie, il ne leur sera plus possible de prendre rendez-vous en ligne jusqu'à ce que BIEN PENSÉ ne débloque la possibilité de prise de rendez-vous.</p>
+				<p>Les Parties sont informées de la possibilité pour Marché des plans d'exclure du Site de plein droit et sans motivation spécifique, tout profil défaillant.</p>
+				<h3>Annulation par le Client</h3>
+				<p>L'annulation d'un rendez-vous par le Client s'effectue par le système d'annulation proposé par le Site dans son espace Client, à savoir l'onglet "Annuler votre RDV".</p>
+				<p>Marché des plans prévient l'Archi de l'annulation à l'adresse de messagerie électronique indiquée lors de son inscription, dans un délai de 20 minutes.</p>
+				<p>Le Client dispose d'un délai de prévenance de 8h00 avant le rendez-vous convenu avec l'Archi pour prévenir BIEN PENSÉ, sans qu'aucune pénalité de retard ne lui soit appliquée.</p>
+				<p>En cas d'annulation par le Client, dans un délai de moins de 8h00 avant le rendez-vous convenu avec l'Archi, le Client se voit appliquer une pénalité de retard équivalente à 10% du prix de sa commande.</p>
+				<p>Si le Client ne prévient pas BIEN PENSÉ de l'annulation du rendez-vous convenu avec l'Archi, il se voit appliquer une pénalité de retard équivalente à 20% du prix de sa commande.</p>
+				<p>80 % du montant des pénalités de retard sont reversées à l'Archi par BIEN PENSÉ par virement bancaire, dans un délai de 24h00 suivant la date de rendez-vous initialement convenu.</p>
+				<p>20 % du montant des pénalités de retard reviennent de plein droit à BIEN PENSÉ.</p>
+				<h3>Annulation par l'Architecte</h3>
+				<p>L'annulation d'un rendez-vous par l'Archi s'effectue par le système d'annulation proposé par le
+					<span style="color: rgb(26, 45, 80);">Site dans son espace Architecte, à savoir l'onglet "Annuler votre RDV".</span>
+				</p>
+				<p>BIEN PENSÉ prévient le Client de l'annulation à l'adresse de messagerie électronique indiquée lors de son inscription, dans un délai de 20 minutes.</p>
+				<p>L'Archi dispose d'un délai de prévenance de 8h00 avant le rendez-vous convenu avec le Client pour prévenir BIEN PENSÉ, sans qu'aucune pénalité de retard ne lui soit appliquée.</p>
+				<p>En cas d'annulation par l'Archi, dans un délai de moins de 8h00 avant le rendez-vous convenu avec le Client, le Client bénéficie d'une réduction de 10 % du montant de sa commande initialement prévue, à valoir sur sa prochaine commande.</p>
+				<p>Si l'Archi ne prévient pas BIEN PENSÉ de l'annulation du rendez-vous convenu avec le Client, le Client bénéficie d'une réduction de 20 % du montant de sa commande initialement prévue, à valoir sur sa prochaine commande et l'Archi reçoit un blâme de BIEN PENSÉ.</p>
+				<p>Si l'Archi est rendu destinataire de deux blâmes, celui-ci est automatiquement radié du Site.</p>
+				<p>Les codes de réduction sont envoyés au Client par BIEN PENSÉ et sont à usage unique et personnel.</p>
+				<p>Le montant des réductions dues au Client est directement prélevé par BIEN PENSÉ sur le montant de la prochaine intervention de l'Archi fautif, majoré d'une commission de 20% revenant de plein droit à BIEN PENSÉ.</p>
+				<h3>Cas de force majeure</h3>
+				<p>Les Parties reconnaissent expressément et sans réserve que la force majeure résulte d'un évènement imprévisible, irrésistible et extérieur.</p>
+				<p>En cas d'empêchement temporaire de force majeure et sur justification, les obligations des parties sont suspendues.</p>
+				<p>En cas d'empêchement définitif, les Parties sont libérées de leurs obligations dans les conditions prévues aux articles 1351 et suivants du code civil.</p>
+				<p>BIEN PENSÉ, le Client et l'Archi ne sauraient être tenus responsables d'une inexécution contractuelle en cas de force majeure.</p>
+				<h2>ARTICLE 8 – RESPONSABILITE</h2>
+				<h3>Responsabilité de BIEN PENSE</h3>
+				<p>La responsabilité de BIEN PENSÉ est strictement limitée à la relation contractuelle établie par les présentes Conditions générales de vente et d'utilisation, à savoir la mise en relation entre le Client et l'Archi et la remise du plan 3D une fois celui-ci disponible.</p>
+				<p>BIEN PENSÉ n'est pas responsable de la violation des droits d'auteur d'un plan 3D remis par l'Archi.</p>
+				<p>BIEN PENSÉ ne saurait être tenu responsable de la faisabilité, ni des coûts engendrés par la réalisation du plan 3D.</p>
+				<p>BIEN PENSÉ n'est pas non plus responsable de l'éventuelle mésentente entre le Client et l'Archi.</p>
+				<p>Si l'Archi et le Client disposent de la faculté de poursuivre leurs relations dans le cadre de la réalisation d'un projet ultérieur à la remise du plan 3D, dans ce cas BIEN PENSÉ est totalement désengagé contractuellement.</p>
+				<p>Ainsi, la poursuite des études et projets complémentaires et postérieures à la remise du plan 3D est directement réalisée entre le Client et l'Archi, sans que BIEN PENSÉ ne soit impliqué dans cette éventualité.</p>
+				<p>BIEN PENSÉ n'est pas non plus responsable des conseils prodigués par l'Archi au Client lors du rendez-vous convenu pour la réalisation du plan 3D.</p>
+				<h3>Responsabilité de l'Archi</h3>
+				<p>L'Archi exerce sa profession en toute indépendance, selon ses obligations déontologiques, légales et règlementaires personnelles et sous sa responsabilité exclusive.</p>
+				<h3>Responsabilité du Client</h3>
+				<p>Le Client est responsable du Lieu de réalisation du plan 3D, lequel ne présente aucun risque manifeste de sécurité et/ou de santé pour l'Archi.</p>
+				<h2>ARTICLE 9 – PROPRIÉTÉ INTELLECTUELLE</h2>
+				<h3>Propriété intellectuelle des Archis sur leurs Plans 3D</h3>
+				<p>Les plans 3D réalisés par l'archi sont, à la condition qu'ils soient originaux, protégés par le droit d'auteur.</p>
+				<p>Sur autorisation préalable et expresse de l'Archi, BIEN PENSÉ peut utiliser le plan 3D de l'Archi à des fins commerciales, pour promouvoir son Site, sans qu'aucun droit ne soit perçu par l'Archi.</p>
+				<h3>Propriété intellectuelle des Archis sur leur Book</h3>
+				<p>Les images/photos/visuels/dessins présentés comme book par l'Archi sont, à la condition qu'ils soient originaux, protégés par le droit d'auteur.</p>
+				<h3>Propriété intellectuelle des contenus du Site</h3>
+				<p>L'accès au Site ne confère aux Utilisateurs, Clients et Archis aucune prérogative sur les éléments du Site protégés par des droits de propriété intellectuelle, notamment les informations, données, photographies, marques, dessins, images, graphismes, représentations, animations, textes, etc, lesquels restent la propriété exclusive de BIEN PENSÉ ou de leurs titulaires respectifs.</p>
+				<p>Aucune utilisation des éléments du Site protégés par des droits de propriété intellectuelle ne pourra donc être faite par les Utilisateurs, Clients et Archis comme la copie, la reproduction, la modification, la représentation, la création de produits dérivés, la traduction, distribution ou toute autre exploitation non conforme avec l'objet du Service.</p>
+				<h2>ARTICLE 10 – PROTECTION DES DONNEES PERSONNELLES</h2>
+				<p><br></p>
+				<p>
+					<span style="color: rgb(34, 34, 34);">a) Objet du traitement (finalité et base légale)</span><br><br><span style="color: rgb(34, 34, 34);">Ce site permet de recevoir des messages de nos prospects et de nos clients et les données collectées à cette occasion sont enregistrées et traitées dans un fichier clients.</span><br><span style="color: rgb(34, 34, 34);">Ce fichier permet de :</span><br><span style="color: rgb(34, 34, 34);">&nbsp;- Gérer les commandes, le paiement et la livraison.</span><br><span style="color: rgb(34, 34, 34);">Mener des opérations de marketing (fidélisation, promotions) et adresser des publicités par courriel auprès de nos clients qui ne s’y sont pas opposés ou qui l’ont accepté :</span><br><span style="color: rgb(34, 34, 34);">Sur des services analogues à ceux qu’ils ont commandés.</span><br><span style="color: rgb(34, 34, 34);">Sur d’autres services proposés par la société.</span><br><br><span style="color: rgb(34, 34, 34);">b) Bases légales des traitements</span><br><span style="color: rgb(34, 34, 34);">Gestion des commandes : la base légale du traitement est l’exécution d’un contrat (Cf. article 6.1.b) du Règlement européen sur la protection des données).</span><br><span style="color: rgb(34, 34, 34);">Envoi de sollicitations par courriel sur des services analogues à ceux commandés par les clients : la base légale du traitement est l’intérêt légitime de la société (Cf. article 6.1.f) du Règlement européen sur la protection des données), à savoir promouvoir nos services auprès de nos clients.</span><br><span style="color: rgb(34, 34, 34);">Envoi de sollicitations par courriel sur d’autres services proposés par la société : la base légale du traitement est le consentement (Cf. article 6.1.a) du Règlement européen sur la protection des données, comme l’exige l’article L. 34-5 du code des postes et des communications électroniques.</span><br><span style="color: rgb(34, 34, 34);">Cookies d’audience du site internet : la base légale du traitement est le consentement (Cf. article 6.1.a) du Règlement européen sur la protection des données.</span><br><br><span style="color: rgb(34, 34, 34);">c) Catégories de données</span><br><span style="color: rgb(34, 34, 34);">Identité : civilité, nom, prénom, adresse, adresse de livraison, numéro de téléphone, adresse électronique, date de naissance, code interne de traitement permettant l’identification du client, données relatives à l’enregistrement sur des listes d’opposition.</span><br><span style="color: rgb(34, 34, 34);">Données relatives aux commandes : numéro de la transaction, détail des achats, montant des achats, données relatives au règlement des factures (règlements, impayés, remises).</span><br><span style="color: rgb(34, 34, 34);">Données relatives aux moyens de paiement : numéro de carte bancaire, date de fin de validité de la carte bancaire, cryptogramme visuel (lequel est immédiatement effacé).</span><br><span style="color: rgb(34, 34, 34);">Données nécessaires à la réalisation des actions de fidélisation et de prospection : historique des commandes.</span><br><br><span style="color: rgb(34, 34, 34);">d) Destinataires des données</span><br><span style="color: rgb(34, 34, 34);">Les services clients et facturation de la société sont destinataires de l’ensemble des catégories de données.</span><br><span style="color: rgb(34, 34, 34);">Ses sous-traitants, chargés de la livraison de ses commandes, sont destinataires de l’identité, de l’adresse et du numéro de téléphone de nos clients.</span><br><br><span style="color: rgb(34, 34, 34);">e) Durée de conservation des données</span><br><span style="color: rgb(34, 34, 34);">Données nécessaires à la gestion des commandes et à la facturation : pendant toute la durée de la relation commerciale et dix (10) ans au titre des obligations comptables, sous réserve de dispositions contraires.</span><br><span style="color: rgb(34, 34, 34);">Données nécessaires à la réalisation des actions de fidélisation et à la prospection : pendant toute la durée de la relation commerciale et trois (3) ans à compter de la réception de la dernière commande.</span><br><span style="color: rgb(34, 34, 34);">Données concernant les listes d’opposition à recevoir de la prospection : trois (3) ans.</span><br><br><span style="color: rgb(34, 34, 34);">f) Vos droits</span><br><span style="color: rgb(34, 34, 34);">Si vous ne souhaitez plus recevoir de publicité de la part de la société (exercice du droit d’opposition ou retrait d’un consentement déjà donné), contactez-nous :
+					</span>
+					<span style="color: rgb(26, 45, 80);">contact@bienpense.com</span><br><span style="color: rgb(34, 34, 34);">Vous pouvez accéder aux données vous concernant, les rectifier ou les faire effacer. Vous disposez également d’un droit à la portabilité, d’un droit de donner des directives en cas de décès et d’un droit à la limitation du traitement de vos données (Consultez le site&nbsp;</span>
+					<a href="http://cnil.fr/" rel="noopener noreferrer" target="_blank" style="color: rgb(17, 85, 204);">cnil.fr</a>
+					<span style="color: rgb(34, 34, 34);">&nbsp;pour plus d’informations sur vos droits).</span><br><span style="color: rgb(34, 34, 34);">Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif, vous pouvez nous contacter.</span><br><span style="color: rgb(34, 34, 34);">Si vous estimez, après avoir contacté la société, que vos droits « Informatique et Libertés » ne sont pas respectés, vous pouvez adresser une réclamation en ligne à la CNIL.</span>
+					<span style="color: rgb(26, 45, 80);"></span>
+				</p>
+				<h2>ARTICLE 11 – FREQUENTATION DES SITES INTERNET ET COOKIES</h2>
+				<h3>Liens hypertextes</h3>
+				<p>Le Site BIEN PENSÉ peut contenir un certain nombre de liens hypertextes vers d'autres sites internet, mis en place avec l'autorisation de BIEN PENSÉ.</p>
+				<p>BIEN PENSÉ n'a pas la possibilité de vérifier le contenu des sites internet ainsi visités et n'assumera en conséquence aucune responsabilité de ce fait.</p>
+				<h3>Cookies</h3>
+				<p>Un cookie est un fichier de petite taille, qui ne permet pas l'identification de l'Utilisateur, mais qui enregistre des informations relatives à la navigation d'un ordinateur sur un site.</p>
+				<p>La navigation sur le Site Marché des Plans est susceptible de provoquer l'installation de cookies sur l'ordinateur de l'Utilisateur.</p>
+				<p>Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le Site, et ont également vocation à permettre diverses mesures de fréquentation.</p>
+				<p>Le refus d'installation d'un cookie peut entraîner l'impossibilité d'accéder à certains services.</p>
+				<p>L'Utilisateur peut toutefois configurer son ordinateur pour refuser l'installation des cookies.</p>
+				<p>Plus d'informations sur les cookies :
+					<a href="https://www.cnil.fr" target="_blank">https://www.cnil.fr</a>
+				</p>
+				<h2>ARTICLE 12 - MAINTENANCE</h2>
+				<p>Le fonctionnement du Service peut être interrompu temporairement pour procéder à des opérations de maintenance ou de mises à jour sans préavis.</p>
+				<h2>ARTICLE 13 – LOI APPLICABLE ET JURIDICTION COMPETENTE</h2>
+				<p>La résolution amiable de tout litige, difficulté ou contestation est le mode privilégié par Marché des plans.</p>
+				<p>En cas de litige entre le Client et Marché des Plans, l'Archi et Marché des Plans, le Client et l'Archi, ou en cas de difficulté d'interprétation ou d'exécution ou en cas de contestation relative aux présentes conditions générales de vente et d'utilisation, la loi applicable est la loi française et la juridiction française est compétente.</p>
+
+
+				<h2>ARTICLE 14 – FRAIS DE VENTE DE PLANS SUR LA PLATEFORME</h2>
+				
+				<div class="form-group">
+						<label> La commission de la plateforme est de 5% sur toute vente des plans de maisons </label>						
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</main><br><br>{% endblock %}

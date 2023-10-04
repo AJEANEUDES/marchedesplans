@@ -1,0 +1,148 @@
+
+<div class="preloader"></div>
+
+        <!-- Start Top Bar style1 -->
+        <section class="top-bar-style1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="top-style1 clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Top Bar style1 -->
+      
+	    <!--Start Main Header-->
+        <header class="main-header header-style1" >
+        
+            <div class="header-upper-style1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="inner-container clearfix">
+                                <div class="logo-box-style1 float-left">
+                                   <a href="{{path('index')}}">
+										<img src="{{asset('new/images/resources/mdp.png')}}" width="66px" alt=" #">
+									</a>
+                                </div>
+                                <div class="main-menu-box float-right">
+                                    <nav class="main-menu clearfix">
+                                        <div class="navbar-header clearfix">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        </div>
+                                        <div class="navbar-collapse collapse clearfix">
+												<ul class="navigation clearfix">
+
+																<li class="dropdown current"><a href="{{path('index')}}">Accueil</a> </li>
+																<li class="dropdown"><a href="{{path('about_us')}}">A Propos</a></li>
+																<li class="dropdown"><a href="{{ path('plan_list') }}">Maisons</a></li>
+																<li class="dropdown"><a href="{{path('faq')}}">FAQ</a></li>
+																<li class="dropdown"><a href="{{ path('contact') }}">Contact</a></li>
+															
+																<li class="dropdown">
+																	{% if  app.user and  (is_granted('ROLE_USER')) %}
+																		<li class="{% if app.request.get('_route') == 'listes_mes_achats' %} active {% endif %}">
+																			<a href="{{ path('listes_mes_achats') }}">
+																				{% trans %}
+																			 		Mes Achats
+
+																				{% endtrans %}
+																			</a>
+																		</li>
+
+																	{% endif %}
+																</li>
+
+														<li class="dropdown">
+
+															{% if app.user and  (is_granted('ROLE_ADMIN') or is_granted('ROLE_ARCHITECTE') or is_granted('ROLE_SUPER_ADMIN')) %}
+																<li class="{% if app.request.get('_route') == 'architecte_dashboard' %} active {% endif %}">
+																	<a href="{{ path('architecte_dashboard') }}">
+																		{% trans %}
+																		Compte
+
+																		{% endtrans %}
+																	</a>
+																</li>
+
+															{% endif %}
+
+														</li>
+
+														<li classs="dropdown">
+															{% if app.user and (is_granted('ROLE_USER')) %}
+																<li class="{% if app.request.get('_route') == 'edit_my_profil' %} active {% endif %}">
+																	<a href="{{ path('edit_my_profil',{'id': app.user.id}) }}">
+																		{% trans %}
+																		<i class="fa fa-user"></i>
+																		{% endtrans %}
+																	</a>
+
+																</li>
+															{% endif %}
+														</li>
+
+															<li classs="dropdown">
+
+																{% if app.user %}
+																	<a href="{{ path('app_logout') }}" style="font-size: 20px; font-weight: 300;">
+																		<i class="fa fa-power-off m-r-5 m-l-5" style="color:#000;"></i>
+																	</a>
+
+																	{% else %}
+
+																		{% if app.request.attributes.get('_route') == 'app_login' %}
+																			{% else %}
+																				<a href="{{ path('app_login') }}" style="font-size: 20px; font-weight: 300;">
+																						<i class="fa fa-user" style="font-size:20px; font-weight: 300;color:red;">
+																							
+																						</i>
+																				</a>
+																		{% endif %}
+
+																{% endif %}
+															</li>
+													<div class="cart-box">
+														{# {% if  app.user and  (is_granted('ROLE_USER'))  %} #}
+															<li class="{% if app.request.get('_route') == 'cart_index' %} active {% endif %}">
+																					
+																<a href="{{ path('cart_index') }}" class="cta cta-colored" style="color:red">
+																	<span class="icon-bag" >
+																		<span class="number">({{ app.session.get('panier')|length }})</span>		
+
+																	</span>
+																</a>
+															</li>
+															
+
+														{# {% endif %} #}
+													</div>
+														
+												</ul>
+                                        </div>
+
+								
+                                    </nav>
+									{# <div class="mainmenu-right">
+                                      
+                                       
+                                    </div> #}
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       
+        </header>
+        <!--End Main Header-->
+

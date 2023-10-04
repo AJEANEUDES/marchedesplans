@@ -1,0 +1,61 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+
+{% block title %}Marché des Plans  Administration --Créer une Forme
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="col-12 d-flex no-block align-items-center">
+		<h4 class="page-title">
+			Ajouter une forme
+		</h4>
+		<div class="ml-auto text-right">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="#">
+							Accueil
+
+						</a>
+					</li>
+
+				</ol>
+			</nav>
+		</div>
+	</div>
+</div></div>
+
+<div class="container-fluid">
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			{{ form_start(form) }}
+			<div class="card-body">
+				<h4 class="card-title"></h4>
+				<div class="form-group row">
+					<label for="fname" class="col-sm-3 text-right control-label col-form-label">Libellé</label>
+					<div class="col-sm-9">
+						{{ form_widget(form.libelle, {'attr': {'class': 'form-control', 'placeholder': 'Saisir le libellé' }}) }}
+					</div>
+				</div>
+
+
+			</div>
+			<div class="border-top">
+				<div class="card-body">
+
+					<button class="btn btn-cyan">{{ button_label|default('Enregistrer') }}</button>
+				</div>
+			</div>
+			{{ form_end(form) }}
+		</div>
+
+
+	</div>
+
+
+{% endblock %}

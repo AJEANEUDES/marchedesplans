@@ -1,0 +1,102 @@
+<div class="modal fade" id="trans{{ miniplan.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    Liste des achats sur le Plan 
+                    {{ miniplan.titre }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: black;">
+
+               
+
+				{% if is_granted('ROLE_ARCHITECTE') %}
+
+				
+<div class="row">
+<div class="col-md-12">
+	<div class="card">
+		<div class="card">
+			<div class="card-body">
+				<div class="table-responsive">
+
+					<table id="zero_config" class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>
+								Plans                                                                                       
+																									
+																	
+							</th>
+							<th>
+								Client                                                                                      
+																									
+																	
+							</th>
+							<th>
+								Status                                                      
+																									
+																	
+							</th>
+							<th>
+								Date 
+																																	
+																									
+																	
+							</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in miniplan.achats %}
+							<tr>
+								<td>
+									{{ user.plan.getTitre() }}
+
+								</td>
+								<td>
+									{{ user.getUsers().getEmail() }}
+								</td>
+								<td>
+									{{ user.etat }}
+								</td>
+								<td>
+									{{ user.getCreatedAt().format('d/m/Y') }}
+								</td>
+
+							</tr>
+
+						{% else %}
+							<tr>
+								<td colspan="7">
+									aucun achat sur ce plan  
+																																																			
+																					
+								</td>
+							</tr>
+
+						{% endfor %}
+
+					</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endif %}
+
+            </div>
+
+        </div>
+    </div>
+</div>

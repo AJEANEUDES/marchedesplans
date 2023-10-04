@@ -1,0 +1,99 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+     Marché des Plans  Administration -- Listes des types de Maisons
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Listes des Types de Maisons             
+                    
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                    <a class="btn btn-cyan" href="{{ path('admin_type_new') }}">
+                    Ajouter
+                    </a>
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+       
+            <div class="card-body">
+                <h5 class="card-title">
+                    {# Basic Datatable #}
+                </h5>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                
+                                <th>
+                                    libellé
+                                </th>
+                                <th>
+                                    actions
+                                </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for type in types %}
+                                <tr>
+                                    
+                                    <td>
+                                        {{ type.libelle }}
+                                    </td>
+                                    <td>
+                                       
+                                        <a class="btn btn-success" href="{{ path('admin_type_edit', {'id': type.id}) }}">
+                                            Modifier
+                                        </a>
+                                        <a class="btn btn-danger">
+                                            {{ include('ajout/_delete_form.html.twig') }}
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">
+                                        aucun type veuillez en créer 
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+       
+
+    </div>
+</div>
+
+
+
+{% block javascripts %}
+
+    
+{% endblock %}
+
+
+{% endblock %}

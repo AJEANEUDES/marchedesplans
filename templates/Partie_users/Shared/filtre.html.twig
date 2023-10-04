@@ -1,0 +1,71 @@
+<section id="works" class="works">
+	<div class="box" style="border:3px;">
+
+		{{ form_start(form, {attr: {class: 'row g-12' }}) }}
+    <div class="row">
+
+		{# <div class="col-md-12">
+			{{ form_row(form.q, {'attr': {'class': 'form-control' }}) }}
+
+
+		</div> #}
+		<div
+			class="col-md-12">
+			{# <label for="" class="form-label">Prix Minimu</label> #}
+			{{ form_row(form.min, {'attr': {'class': 'form-control' ,'type':'number' }}
+			) }}
+
+
+		</div>
+		<div
+			class="col-md-12">
+			{# <label for="" class="form-label">prix Max</label> #}
+			{{ form_row(form.max, {'attr': {'class': 'form-control' ,'type':'number' }}
+			) }}
+
+
+		</div>
+		
+		<div
+			class="col-md-12">
+			{# <label for="" class="form-label">Superficie</label> #}
+			{# {{ form_row(form.superficie, {'attr': {'class': 'form-control', 'placeholder': 'Superficie','type':'number' }}) }} #}
+			<label for="" class="form-label">Superficie(Nombre de lots)</label>
+			{{ form_row(form.superficies, {'attr': {'class': 'form-control','type':'number' }}) }}
+
+
+		</div>
+		<div
+			class="col-md-12">
+			{# <label for="" class="form-label">Pieces</label> #}
+			{{ form_row(form.nbre_piece, {'attr': {'class': 'form-control','type':'number' }}) }}
+
+
+		</div>
+        <div
+			class="col-md-12">
+			<label for="" class="form-label">Types de Maisons</label>
+			{{ form_row(form.types, {'attr': {'class': 'form-control','type':'number' }}) }}
+
+
+		</div>
+        <div
+			class="col-md-12">
+			<label for="" class="form-label">Formes de Maisons</label>
+			{{ form_row(form.formes, {'attr': {'class': 'form-control','type':'number' }}) }}
+
+
+		</div>
+
+
+        </br>
+        </br>
+        </br>
+            <div class="col-md-6">
+                    <button type="submit" class="btn-one">
+                    Rechercher
+                    </button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</section>

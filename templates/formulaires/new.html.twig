@@ -1,0 +1,11 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}New Formulaires{% endblock %}
+
+{% block body %}
+    <h1>Create new Formulaires</h1>
+
+    {{ include('formulaires/_form.html.twig') }}
+
+    <a href="{{ path('formulaires_index') }}">back to list</a>
+{% endblock %}

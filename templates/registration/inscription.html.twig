@@ -1,0 +1,159 @@
+﻿{% extends "base.html.twig" %}
+
+{% block title %}
+	Inscription
+
+
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+
+{% block body %}
+					
+	
+ <!--Start breadcrumb area-->
+        <section class="breadcrumb-area style2" style="background-image: url({{asset('new/images/slides/6.jpg')}}); witdh:50%">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="inner-content-box clearfix">
+                            <div class="title-s2 text-center">
+                                <span></span>
+                                <h1>Inscription </h1>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--End breadcrumb area-->
+
+  <section class="login-register-area">
+            <div class="container">
+                <div class="row">
+      
+
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form register">
+                         
+                            <div class="row">
+								{{ include('messages.html.twig') }}
+
+                              	{% if app.user %}
+						
+								{% else %}
+
+								<form action="{{ path('app_register') }}" method="post">
+
+                                    <div class="col-md-12">
+                                        <div class="input-field">
+											<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Entrer votre nom " required="">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+									 <div class="col-md-12">
+                                        <div class="input-field">
+												<input type="text" class="form-control" id="prenoms" name="prenoms" placeholder="Entrer vos prénoms " required="">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                             
+							   <div class="col-md-12">
+                                        <div class="input-field">
+												<input type="text" class="form-control" id="email" name="email" placeholder="Entrer adresse email *" required="">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+								<div class="col-md-12">
+                                        <div class="input-field">
+                               					 <input type="text" class="form-control" id="password" name="password" placeholder="Entrer votre mot de passe *" required="">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+								
+								<div class="col-md-12">
+                                        <div class="input-field">
+                                            
+											<label for="inputName">  Choisir un Status <span style="color:red;">*</span></label>
+                          					  <select class="form-control" id="userlist" name="userlist" >
+
+                                                            <option value="R3">
+                                                                Client
+                                                            </option>
+
+                                                            <option value="R2">
+                                                                Architecte
+                                                            </option>
+
+                                            	</select>
+										    <div class="icon-holder">
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>		
+                                    <br>		
+
+				 <div class="form-group form-row">
+                        <div class="col-md-12">
+                            <label class="custom-control custom-checkbox checkbox-lg">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <div class="custom-control-label" for="customCheck1">
+                                        
+                                            <strong>                                            
+                                                <a href="{{path('terme')}}" target="_blank" style="color:red;">
+                                                Termes et Conditions
+                                                                                                
+                                                </a>
+                                            </strong>
+                                        </div>
+                             </label>
+                             
+                        </div>
+                    </div>
+                                    <br>		
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                                <button class="btn btn-danger" type="submit">S'inscrire</button>
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+
+									   <div class="checkout-area">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="exisitng-customer">
+															<h5>Vous avez un compte?<a href="{{path('app_login')}}">Se Connecter</a>
+															</h5>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+                                </form>
+					
+					{% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+ 			 </div>
+            </div>
+        </section>
+{% endblock %}

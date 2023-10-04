@@ -1,0 +1,153 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Marché des Plans - Boutique des plans
+{% endblock %}
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Boutique des Maisons
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+
+	<!--Start Shop area-->
+	<section id="shop-area" class="main-shop-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 float-right">
+					<div class="shop-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="showing-result-shorting" style="text-align:center;">
+
+									<div class="showing">
+										<p style="color:#000; text-align:center; font-weight:700;">
+											<span style="font-weight:700; color:red;font-size:20px; text-align:center">{{ plans|length }}</span>
+											Maisons
+										</P>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="row">
+							<!--Start single product item-->
+							{% if plans  is   defined  %}
+
+								{% for plan in plans %}
+
+									{% if plan.getMiniplans is empty %}
+										{# rien dans le plan #}
+									{% else %}
+
+
+										<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+											<div class="single-product-item text-center">
+												{% for image in plan.images |slice(1,1)%}
+													<a onclick="testclick()" href="{{ path('show_plan_details',{'id':plan. id}) }}">
+														<div class="img-holder" width="600">
+															<img src="{{ asset('/uploads/' ~ image.nom) }}" alt="Awesome Product Image">
+
+														</div>
+													</a>
+												{% endfor %}
+
+												<div class="title-holder text-center">
+													<div class="static-content">
+														<h3 class="title text-center">
+															<a href="{{ path('show_plan_details',{'id':plan. id}) }}">{{ plan.titre }}</a>
+														</h3>
+														<span>#{{ plan.type }}</span>
+													</div>
+													<div class="overlay-content">
+														<ul style="text-align:center" class="clearfix">
+															<li style="text-align:center">
+																<a href="{{ path('show_plan_details',{'id':plan. id}) }}">
+																	<i class="fa fa-eye" style="font-size:20px; font-style=uppercase; color:#000">
+																		<p></p>
+
+																	</i>
+																	<div class="toltip-content"></div>
+																</a>
+															</li>
+
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+
+
+							<!--End single product item-->
+
+						</div>
+						<!--Start post pagination-->
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="post-pagination text-center">
+									{{ knp_pagination_render(plans)}}
+								</ul>
+							</div>
+						</div>
+						<!--End post pagination-->
+					</div>
+				</div>
+
+				<!--Start sidebar Wrapper-->
+				<div class="col-xl-3 col-lg-4  float-left">
+					<div
+						class="shop-sidebar-wrapper">
+						<!--Start single sidebar-->
+						<div class="single-sidebar-box pdbtm">
+							<div class="shop-sidebar-title">
+								<h3>Rechercher une Maison</h3>
+							</div>
+
+							<div class="single-sidebar-box">
+
+								{% include "Partie_users/Shared/filtre.html.twig" %}
+								
+
+								<div class="cart-box">
+									{% if  app.user and  (is_granted('ROLE_USER'))  %}
+										<li class="{% if app.request.get('_route') == 'cart_index' %} active {% endif %}">
+																
+											<a href="{{ path('cart_index') }}" class="cta cta-colored" style="color:red">
+												<span class="icon-bag" >
+													<span class="number">({{ app.session.get('panier')|length }})</span>		
+
+												</span>
+											</a>
+										</li>
+										
+
+									{% endif %}
+								</div>	
+								
+							</div>
+
+													
+
+						</div>
+					</section>
+					<!--End Shop area-->
+				{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Marché des Plans - Liste de mes Achats
+
+{% endblock %}
+
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Mes Achats<br>
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+	<section class="cart-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<div class="table-outer">
+						<table class="cart-table">
+							<thead class="cart-header" style="background-color:#000; color:#fff;">
+								<tr>
+									<th>
+										Maison
+									</th>
+									<th>
+										Plans
+									</th>
+									<th>
+										Status du Payement
+									</th>
+									<th>
+										Mode de Payement
+									</th>
+
+									<th>
+										Date de Payement
+									</th>
+
+									<th>
+										Heure de Payement
+									</th>
+
+									<th>
+										Actions
+									</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+							{{ include('messages.html.twig') }}
+
+								{% for user in users %}
+									{% if user.etat == "Confirmer" %}
+
+
+										<tr>
+											<td class="shoping__cart__item">
+												<h5>{{ user.plan.getTitre() }}</h5>
+											</td>
+											<td class="shoping__cart__price">
+												{{ user.miniplan.getTitre() }}
+											</td>
+											<td class="shoping__cart__quantity">
+												<span class="badge badge-success">
+													{{ user.etat }}
+												</span>
+											</td>
+
+											<td class="shoping__cart__total">
+												{{ user.payement }}
+											</td>
+											<td class="shoping__cart__total">
+												{{ user.getCreatedAt().format('d/m/Y')  }}
+											</td>
+											<td class="shoping__cart__total">
+												{{ user.getCreatedAt().format('h:i:sa')  }}
+											</td>
+											
+														
+											<td  colspan="6" class="shoping__cart__item__close">
+
+														
+
+												{% for fichier in user.getMiniplan.getFichiers() %}
+										
+										
+													<div class="update-cart pull-right">
+														<a class=" btn btn-danger" href="{{ asset('/pdf/' ~ fichier.nom) }}" target="_blank">
+															Telecharger le Plan
+
+														</a>
+														<br>
+
+														<a class="btn btn-primary" href="{{ path('envoyer_message' ,{'id':user.miniplan. id}) }}"> 
+															Contacter L'architecte                                                                    
+
+													</a>
+													</div>
+													
+												
+												{% endfor %}
+											</td>
+										</tr>
+									{% endif %}
+									
+									{% if user.etat == "annuler" %}
+
+									{% endif %}
+
+								{% endfor %}
+
+
+							</tbody>
+						</table>
+						<div style="text-align:center;">
+								<a class=" btn btn-danger" href="{{path('plan_list')}}">
+									Boutique des plans
+								</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Start post pagination-->
+			
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<ul class="post-pagination text-center">
+						{# {{ knp_pagination_render(liste_des_achat2) }} #}
+					</ul>
+				</div>
+				
+			<!--End post pagination-->
+
+		</div>
+						
+	</section>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Editer un Plan
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="col-12 d-flex no-block align-items-center">
+	<h4 class="page-title">
+		Editer Une Maison
+	</h4>
+	<div class="ml-auto text-right">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li
+					class="breadcrumb-item">{# <a href="#">
+						                            Home
+						                                            
+						                        </a> #}
+				</li>
+
+			</ol>
+		</nav>
+	</div>
+</div></div></div><div class="container-fluid"><div class="row">
+<div class="col-md-12">
+	<div class="card">
+		{{ form_start(form) }}
+		<div class="card-body">
+			<h4 class="card-title">Personal Info</h4>
+			<div class="form-group row">
+				<label for="fname" class="col-sm-3 text-right control-label col-form-label">Titre</label>
+				<div class="col-sm-9">
+					{{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Saisir le titre de l\'article' }}) }}
+                </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Description</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'entrez la description du plan' }}) }}                    
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Nombre de Pieces</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(form.nbre_piece, {'attr': {'class': 'form-control' }} ) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email1" class="col-sm-3 text-right control-label col-form-label">Etages</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(form.nbre_etage, {'attr': {'class': 'form-control' }}) }}                  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Superficie</label>
+                    <div class="col-sm-9">
+                     {{ form_widget(form.superficie, {'attr': {'class': 'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Type</label>
+                    <div class="col-sm-9">
+                    {{ form_widget(form.type, {'attr': {'class': 'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Forme</label>
+                    <div class="col-sm-9">
+                    {{ form_widget(form.forme, {'attr': {'class': 'form-control' }}) }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Garage</label>
+            <div class="col-sm-9">
+            {{ form_widget(form.garage, {'attr': {'class': 'form-control' }}) }}
+            </div>
+        </div>
+
+                <div class="form-group row">
+                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Images</label>
+                    <div class="col-sm-9">
+                    {{ form_widget(form.images, {'attr': {'class': 'form-control' }}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="border-top">
+                <div class="card-body">
+                {# {{ include('plans/_form.html.twig', {'button_label': 'Update'}) }} #}
+            <button class="btn btn-cyan">{{ button_label|default('Update') }}</button>
+                
+            </div>
+            </div>
+{# verifier si la route est plan_edit on affiche les images #}
+{% if app.request.attributes.get('_route') == 'plans_edit' %}
+
+<h2> les images </h2>
+    {% for image in plan.images %}
+    <div style="inline-block">
+     <img src="{{ asset('/uploads/' ~ image.nom) }}"  alt="Image" width="150">
+    <a href="{{ path('plan_delete_image', {'id': image.id}) }}" 
+data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+    
+    </div>   
+        
+    {% endfor %} 
+
+{% endif %}
+
+
+
+            {{ form_end(form) }}
+    </div>
+    
+    
+
+</div>
+{% block javascripts %}
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}
+    {% endblock %}

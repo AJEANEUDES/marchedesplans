@@ -1,0 +1,46 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}Modifier Formulaire de Contact{% endblock %}
+
+{% block body %}
+
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Editer un Formulaire de Contact   
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        {# <a href="#">
+                            Home
+                                            
+                        </a> #}
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div>
+
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-md-12">
+        <form>
+       
+        {{ include('formulaires/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+         <br><br>
+       <a class="btn btn-info"href="{{ path('formulaires_index') }}">Revenir sur la liste des formulaires</a>
+        <br><br>
+        <form method="post" action="{{ path('formulaires_delete', {'id': formulaire.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formulaire.id) }}">
+				<button class="btn-danger">Supprimer</button>
+			</form>
+
+    </div>
+   </div> 
+</div>   
+<br><br><br> 
+{% endblock %}

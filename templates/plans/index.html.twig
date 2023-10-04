@@ -1,0 +1,160 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Les Maisons
+
+
+{% endblock %}
+
+{% block stylesheets %}
+	<link href=" {{ asset('css/buttons.dataTables.min.css') }}"/>
+	<link href=" {{ asset('css/jquery.dataTables.min.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div class="col-12 d-flex no-block align-items-center">
+		<div class="col-lg-3 col-md-5">
+
+			<h4 class="page-title">
+				Mes  Maisons
+			</h4>
+			<div class="ml-auto text-right">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+
+							{% if is_granted('ROLE_ARCHITECTE') %}
+
+								<a class="btn btn-cyan" href="{{ path('plans_new') }}">
+									Ajouter une Maison
+
+								</a>
+							{% endif %}
+
+						</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+
+				{% if is_granted('ROLE_USER') %}
+
+					<div class="card">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="zero_config" class="table table-striped table-bordered">
+									<thead>
+										<tr>
+											<th>
+												Titre
+
+											</th>
+											<th>
+												Pieces
+
+											</th>
+											<th>
+												Etage
+
+											</th>
+											<th>
+												Superficie
+
+											</th>
+											<th>
+												Garage
+
+											</th>
+											
+											<th>
+												Action
+
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for user in users.plans %}
+											<tr>
+												<td>
+													{{ user.titre | slice(0, 15) }}
+												</td>
+												<td>
+													{{ user.nbrePiece }}
+												</td>
+												<td>
+													{{ user.nbreEtage }}
+												</td>
+												<td>
+													{{ user.superficie }}
+												</td>
+												<td>
+													{{ user.garage }}
+												</td>
+
+												
+												<td>
+													<a class="btn btn-primary btn-sm" href="{{ path('plans_show', {'id': user. id}) }}">
+														Voir
+
+
+													</a>
+													{% if user in users.plans %}
+														<a class="btn btn-success btn-sm" href="{{ path('plans_edit', {'id': user.id}) }}">
+															Modifier
+
+
+														</a>
+													{% endif %}
+
+													<a class="btn btn-primary btn-sm" href="{{ path('mini_plan_show', {'id': user.id}) }}">
+														Plans
+
+
+													</a>
+
+													<form method="post" action="{{ path('plans_delete', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+														<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+														<input type="hidden" name="_method" value="DELETE">
+														<button class="btn btn-danger btn-sm" style="color:#fff;">
+															Supprimer
+														</button>
+													</form>
+												</td>
+											</tr>
+										{% endfor %}
+
+									</tbody>
+
+								</table>
+							</div>
+
+						</div>
+					</div>
+
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% block javascripts %}
+	{# <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+	        <script src="{{ asset('js/buttons.print.min.js') }}"></script>
+	        <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+	        <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+	        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+	        <script src="{{ asset('js/jszip.min.js') }}"></script>
+	        <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+	        <script src="{{ asset('js/vfs_fonts.js') }}"></script> #}
+
+
+{% endblock %}{% endblock %}

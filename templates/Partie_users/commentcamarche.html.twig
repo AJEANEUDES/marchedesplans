@@ -1,0 +1,219 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+  <style type="text/css">
+ @media screen and (max-width: 767px){
+.single-how-works, .single-blog-item {
+    max-width: 350px;
+    margin: 30px auto;
+}
+
+}
+
+.single-how-works, .single-blog-item {
+    text-align: center;
+    padding: 50px 42px;
+    border-radius: 3px;
+    box-shadow: 0 0px 5px rgb(71 71 71 / 20%);
+    margin-bottom: 30px;
+    -webkit-transition: .3s linear;
+    -moz-transition: .3s linear;
+    -ms-transition: .3s linear;
+    -o-transition: .3s linear;
+    transition: .3s linear;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #a09e9c;
+    text-transform: initial;
+    max-width: 1920px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.icon_phone:before {
+    content: "\e090";
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+</style>
+
+{% endblock %}
+
+{% block title %}
+   Marché Des Plans - Comment ça marche?
+                                   
+{% endblock %}
+
+ 
+
+{% block body %}
+
+
+    {# <section id="works" class="works">
+     <div class="container">
+			<div class="section-header">
+                <br><br><br>
+                    <h2 style="text-align:center; font-weight:bold; background-color:#7FAD39;color:#fff;height:80px;">Comment ça marche</h2>
+                <br><br>
+                    <p style="text-align:center;font-weight:bold;">En quelques étapes trouver les plans idéaux pour réaliser la maison de vos rêves.</p>
+             </div>
+            <br><br>
+			<!--/.section-header-->
+			<div class="works-content">
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="single-how-works">
+                        
+							<h2>
+								<a>
+									<span style="font-size:25px; background-color:#7FAD39; width:40px;" class="badge badge-light">1</span>
+                                        <span style="color:#7FAD39;">	
+                                            Rechercher le plan d'une maison
+                                            <br> <br>
+                                        </span>
+								</a>
+							</h2>
+							<p>
+								Rechercher le plan de la maison qui répond et satisfait à vos exigences et à votre besoin. Vous avez la possibilité de faire une recherche par prix,superficie, nombre de places
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="single-how-works">
+							
+							<h2>
+								<a >
+									<span style="font-size: 25px; background-color:#7FAD39; width: 40px;" class="badge badge-light">2</span>
+									 <span style="color:#7FAD39;">	
+                                           Acheter un plan et valider le payement
+                                            <br> <br>
+                                        </span>
+								</a>
+							</h2>
+							<p>
+								En fonction de vos préférences vous acheter le plan de la maison et valider le paiement en ligne par PayGate et Payzy. Vous pouvez aussi ajouter au panier et acheter le plan pour plus tard. 
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="single-how-works">
+						
+							<h2>
+								<a>
+									<span style="font-size: 25px; background-color:#7FAD39; width: 40px;" class="badge badge-light">3</span>
+									 <span style="color:#7FAD39;">	
+                                           Télécharger le Plan de votre Maison
+                                            <br> <br>
+                                        </span>
+								</a>
+							</h2>
+							<p>
+								Après paiement de votre plan de maison , vous avez la possibilité de télécharger le plan afin d'en faire usage.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.container-->
+
+	</section> #}
+
+         <!--Start breadcrumb area-->
+        <section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/resources/breadcrumb-bg.jpg')}});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="inner-content-box clearfix">
+                            <div class="title">
+                                <h1>Marché<br> des Plans</h1>
+                            </div>
+                            <div class="breadcrumb-menu float-right">
+                                <ul class="clearfix">
+                                    <li><a href="{{path('index')}}">Accueil</a></li>
+                                    <li class="active">Comment ça marche</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End breadcrumb area-->
+
+                
+        <!--Start Working Process Area-->
+        <section class="working-process-area">
+            <div class="container">
+                <div class="sec-title text-center">
+                    <p>To Do good design</p>
+                    <div class="title">Our Working <span>process</span></div>
+                </div>
+                <div class="row">
+                    <!--Start Single Working Process-->
+                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
+                        <div class="single-working-process text-center">
+                            <div class="top-box"><span>01</span></div>
+                            <div class="inner">
+                                <h3>Idea & Design</h3>
+                                <p>With righteous indignation and works off beguiled demoralized charm.</p>
+                                <div class="icon-holder">
+                                    <span class="icon-productive"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Working Process-->
+                    <!--Start Single Working Process-->
+                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <div class="single-working-process text-center">
+                            <div class="top-box"><span>02</span></div>
+                            <div class="inner">
+                                <h3>Specification</h3>
+                                <p>Our power of choice is untrammelled and when nothing prevents.</p>
+                                <div class="icon-holder">
+                                    <span class="icon-document"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Working Process-->
+                    <!--Start Single Working Process-->
+                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
+                        <div class="single-working-process text-center">
+                            <div class="top-box"><span>03</span></div>
+                            <div class="inner">
+                                <h3>Execution</h3>
+                                <p>Wing to the claims of duty the obligations will frequently occur.</p>
+                                <div class="icon-holder">
+                                    <span class="icon-kitchen"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Single Working Process-->
+                </div>
+            </div>
+        </section>
+        <!--End Working Process Area-->
+
+
+{% endblock %}

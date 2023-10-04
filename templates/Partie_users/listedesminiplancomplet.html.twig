@@ -1,0 +1,115 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Achat des Plans Complet
+
+{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/resources/breadcrumb-bg.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Liste des Plans
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+
+	<!--Start cart area-->
+	<section class="cart-area">
+		<div class="container">
+			<div class="row">
+				<h2 style="color:#000;">
+					<span class="badge badge-success">
+						{{plan.titre}}
+					</span>
+				</h2>
+				<br><br>
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<div class="table-outer">
+						<table class="cart-table">
+							<thead class="cart-header">
+								<tr>
+
+									<th>
+										Titre du Plan
+									</th>
+									<th>
+										Prix (FCFA)
+									</th>
+									{{ include('messages.html.twig') }}
+									{% if app.user %}
+										{% if plan.user.id != app.user.id %}
+																																																												</th> 
+										{% endif %}
+										{% else %}
+																																																								</th> 
+									{% endif %}
+								</tr>
+							</thead>
+							<tbody>
+
+								{% for miniplan in plan.miniplans %}
+									<tr>
+										{% include "Partie_users/Shared/transaction.html.twig" %}
+										{% include "Partie_users/Shared/payzy.html.twig" %}
+										{% include "Partie_users/Shared/stripe.html.twig" %}
+
+										<td class="shoping__cart__item">
+											<img src="img/cart/cart-1.jpg" alt="">
+											<h5>
+
+												{{ miniplan.titre }}
+											</h5>
+										</td>
+										<td class="shoping__cart__price">
+											{{ miniplan.prix }}
+										</td>
+									</tr>
+								</tbody>
+							</tbody>
+						</td>
+
+					{% endfor %}
+				</tbody>
+			
+			</table>
+			<br><br>
+				<div style="text-align:center;">
+
+					{% if app.user %}
+						{% if plan.user.id != app.user.id %}
+
+							<button data-toggle="modal" data-target="#trans{{ plan.id }}" class="btn-one" style="text-align: center;">
+								Acheter le Tout
+
+							</button>
+						{% endif %}
+					{% endif %}
+				</div>
+		</div>
+
+
+	</div>
+</div></section><!--End cart area--><script>
+function erroralertclick() {
+Swal.fire({icon: 'error', title: 'Oops...', text: 'Quelque Chose s\'est passée!', footer: '<a href="{{ path("app_logout") }}">Déconnectez-vous quand même?</a>'})
+}
+
+
+function ajoutclick() {
+Swal.fire('Ajout Réussie!', 'Vous venez d\'ajouter un plan au panier avec succès', 'success')
+}
+Swal.showLoading()</script>{% endblock %}

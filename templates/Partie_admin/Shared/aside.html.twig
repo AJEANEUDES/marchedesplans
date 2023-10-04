@@ -1,0 +1,361 @@
+<aside
+	class="left-sidebar" data-sidebarbg="skin5">
+	<!-- Sidebar scroll-->
+	{% if  is_granted('ROLE_ARCHITECTE') %}
+
+		<div
+			class="scroll-sidebar">
+			<!-- Sidebar navigation-->
+			<nav class="sidebar-nav">
+				<ul id="sidebarnav" class="p-t-30">
+					<li class="sidebar-item">
+						<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('architecte_dashboard') }}" aria-expanded="false">
+							<i class="mdi mdi-view-dashboard"></i>
+							<span class="hide-menu">
+								Tableau de bord
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+							<i class="mdi mdi-receipt"></i>
+							<span class="hide-menu">
+								Gestion des Maisons
+
+
+							</span>
+						</a>
+						<ul aria-expanded="false" class="collapse  first-level">
+							{% if is_granted('ROLE_ARCHITECTE') %}
+
+								<li class="sidebar-item">
+									<a href="{{ path('plans_index') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+											Mes Maisons
+
+
+										</span>
+									</a>
+								</li>
+								<li class="sidebar-item">
+									<a href="{{ path('plans_new') }}" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Créer une Maison
+										</span>
+									</a>
+								</li>
+							{% endif %}
+
+							{% if is_granted('ROLE_ADMIN') %}
+
+							<li class="sidebar-item">
+								<a href="{{ path('liste_plans_admin') }}" class="sidebar-link">
+									<i class="mdi mdi-note-plus"></i>
+									<span class="hide-menu">
+										Liste des Maisons
+
+
+									</span>
+								</a>
+							</li>
+							{% endif %}
+
+						</ul>
+					</li>
+					{% if is_granted('ROLE_ARCHITECTE') %}
+						<li class="sidebar-item">
+							<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+								<i class="mdi mdi-receipt"></i>
+								<span class="hide-menu">
+									Gestion des Plans
+
+
+								</span>
+							</a>
+							<ul aria-expanded="false" class="collapse  first-level">
+								<li class="sidebar-item">
+									<a href="{{ path('miniplans_index') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+											Mes  Plans
+
+
+										</span>
+									</a>
+								</li>
+								<li class="sidebar-item">
+									<a href="{{ path('miniplans_new') }}" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Créer un  Plan
+
+
+										</span>
+									</a>
+								</li>
+
+							{% if is_granted('ROLE_ADMIN') %}
+
+								<li class="sidebar-item"><a href="{{ path('liste_plans_admin') }}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Liste des Plans</span></a></li>
+					{% endif %}
+							
+							</ul>
+						</li>
+					{% endif %}
+				
+					{% if is_granted('ROLE_ADMIN') %}
+
+						<li class="sidebar-item">
+							<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+								<i class="mdi mdi-receipt"></i>
+								<span class="hide-menu">
+									Gestion des Utilisateurs
+
+
+								</span>
+							</a>
+							<ul aria-expanded="false" class="collapse  first-level">
+								<li class="sidebar-item">
+									<a href="{{ path('admin_new_user') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+											Créer un Utlisateur
+
+
+										</span>
+									</a>
+								</li>
+								<li class="sidebar-item">
+									<a href="{{ path('admin_utilisateurs') }}" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Liste des Utilisateurs
+
+
+										</span>
+									</a>
+								</li>
+								<li class="sidebar-item">
+									<a href="#" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Liste des Architectes
+
+
+										</span>
+									</a>
+								</li>
+
+							</ul>
+						</li>
+					{% endif %}
+					
+					{% if is_granted('ROLE_ADMIN') %}
+
+
+						<li class="sidebar-item">
+							<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+								<i class="mdi mdi-receipt"></i>
+								<span class="hide-menu">
+								Gestion des Ajouts
+
+
+								</span>
+							</a>
+							<ul aria-expanded="false" class="collapse  first-level">
+								<li class="sidebar-item">
+									<a href="{{ path('admin_ajout_index') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+											Type de Maisons
+
+
+										</span>
+									</a>
+								</li>
+								<li class="sidebar-item">
+									<a href="{{ path('forme_index') }}" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Forme des Maisons
+
+
+										</span>
+									</a>
+								</li>
+
+								<li class="sidebar-item">
+									<a href="{{ path('superficie_index') }}" class="sidebar-link">
+										<i class="mdi mdi-note-plus"></i>
+										<span class="hide-menu">
+											Superficie des Maisons
+
+
+										</span>
+									</a>
+								</li>
+
+
+							</ul>
+						</li>
+
+					{% endif %}
+
+
+					{% if  is_granted('ROLE_ARCHITECTE') %}
+
+						{# <li class="sidebar-item">
+							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('architecte_terme') }}" aria-expanded="false">
+								<i class="mdi mdi-blur-linear"></i>
+								<span class="hide-menu">
+									Conditions d'Utilisation 
+																
+								</span>
+							</a>
+						</li> #}
+
+
+					{% endif %}
+
+					{% if  is_granted('ROLE_ADMIN') %}
+
+						<li class="sidebar-item">
+							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('admin_listes_des_achats') }}" aria-expanded="false">
+								<i class="mdi mdi-blur-linear"></i>
+								<span class="hide-menu">
+									Gestion des Achats
+																
+								</span>
+							</a>
+						</li>
+
+
+						<li class="sidebar-item">
+							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('admin_liste_des_demnandes_de_retrait') }}" aria-expanded="false">
+								<i class="mdi mdi-blur-linear"></i>
+								<span class="hide-menu">
+									Gestion des Retraits
+
+								</span>
+							</a>
+						</li>
+
+
+						<li class="sidebar-item">
+								<a href="{{ path('admin_listes_des_achats_paygate') }}" class="sidebar-link">
+									<i class="mdi mdi-blur-linear"></i>
+									<span class="hide-menu">
+										Liste des achats
+
+
+									</span>
+							</a>
+							{# <ul aria-expanded="false" class="collapse  first-level">
+								{# <li class="sidebar-item">
+									<a href="{{ path('admin_listes_des_achats_paygate') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+
+											PAYGATE
+
+
+										</span>
+									</a>
+								</li> #}
+								{# <li class="sidebar-item">
+													<a href="{{ path('admin_listes_des_achats_payzy') }}" class="sidebar-link">
+														<i class="mdi mdi-note-plus"></i>
+														<span class="hide-menu">
+															PAYZY
+								
+								
+														</span>
+													</a>
+												</li>
+								
+												<li class="sidebar-item">
+													<a href="#" class="sidebar-link">
+														<i class="mdi mdi-note-plus"></i>
+														<span class="hide-menu">
+															STRIPE
+								
+								
+														</span>
+													</a>
+												</li> 
+							</ul> #}
+						</li>
+
+						{# <li class="sidebar-item">
+							<a href="{{ path('formulaires_index') }}" class="sidebar-link">
+								<i class="mdi mdi-blur-linear"></i>
+								<span class="hide-menu">
+									Gestion des Contacts
+
+								</span>
+							</a>
+						</li> #}
+
+					{% endif %}
+
+				
+
+					<li class="sidebar-item">
+						<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('listes_achats_client') }}" aria-expanded="false">
+							<i class="mdi mdi-relative-scale"></i>
+							<span class="hide-menu">
+								Mes Achats
+
+
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+							<i class="mdi mdi-receipt"></i>
+							<span class="hide-menu">
+								Message
+
+
+							</span>
+						</a>
+						<ul aria-expanded="false" class="collapse  first-level">
+							{% if is_granted('ROLE_ARCHITECTE') %}
+								<li class="sidebar-item">
+									<a href="{{ path('send') }}" class="sidebar-link">
+										<i class="mdi mdi-note-outline"></i>
+										<span class="hide-menu">
+											Ecrire un message
+
+
+										</span>
+									</a>
+								</li>
+							{% endif %}
+							<li class="sidebar-item">
+								<a href="{{ path('received') }}" class="sidebar-link">
+									<i class="mdi mdi-note-plus"></i>
+									<span class="hide-menu">
+										Mes Messages
+
+
+									</span>
+								</a>
+							</li>
+
+
+						</ul>
+					</li>
+
+				</ul>
+			</nav>
+			<!-- End Sidebar navigation -->
+		</div>
+	{% endif %}
+
+	<!-- End Sidebar scroll-->
+</aside>

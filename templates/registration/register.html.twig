@@ -1,0 +1,125 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Connexion
+
+
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %} 
+
+
+{% block body %}
+					
+
+
+  <!--Start breadcrumb area-->
+        <section class="breadcrumb-area style2" style="background-image: url({{asset('new/images/slides/8.jpg')}}); witdh:50%">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="inner-content-box clearfix">
+                            <div class="title-s2 text-center">
+                                <span></span>
+                                <h1>Connexion </h1>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End breadcrumb area-->
+
+        <!--Start login register area-->
+        <section class="login-register-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form">
+                            {# <div class="shop-page-title">
+                                <div class="title">Connexion <span></span></div>
+                            </div> #}
+								
+                            <div class="row">
+								{{ include('messages.html.twig') }}
+
+						<form action="{{ path('app_login') }}" method="post">
+								
+								{% if error %}
+									<div class="alert alert-danger">
+									{{ error.messageKey|trans(error.messageData, 'security') }}
+									</div>
+								{% endif %}
+								
+								{% if app.user %}
+
+							<a href="{{ path('app_logout') }}">
+							<div class="mb-3">
+							Vous etes deja connecté en tant que
+							<strong style="color:red">{{ app.user.username }}</strong>
+							,
+							<button  class="btn-one">SE DECONNECTER </button>
+							</div>
+							</a>	
+							{% else %}
+
+                                    <div class="col-xl-12">
+                                        <div class="input-field">
+											<input value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Entrer votre email">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xl-12">
+                                        <div class="input-field">
+											<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Entrer votre mot de passe">
+											<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="col-xl-12">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-sm-12">
+                                                <button class="btn btn-danger" type="submit"> Se Connecter</button>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+
+                                    <div class="checkout-area">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="exisitng-customer">
+															<h5>Vous n'avez pas de compte?<a href="{{path('app_register')}}">S'inscrire</a>
+															</h5>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+                                </form>
+			
+				{% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+               
+
+                </div>
+            </div>
+        </section>
+        <!--End login register area-->
+
+
+{% endblock %}

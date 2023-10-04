@@ -1,0 +1,203 @@
+
+
+
+<div class="container">
+    <div class="row">
+    {{ form_start(form, {attr: {class: 'filtre' }}
+) }}    
+{{ form_row(form.q) }}
+        <div class="col-md-3">
+            
+            <label class="">Categories</label>
+           
+        </div>
+
+        <div class="col-md-3">
+        <div class="form-check">
+        {{ form_row(form.types, {'attr': {'class': 'form-check-input'}}) }}
+        </div>
+    </div>
+
+        <h4>
+            Forme du plans
+        </h4>
+        {{ form_row(form.formes) }}
+        
+        <br/>
+        
+        <h4>
+            Prix
+        </h4>
+        <div class="row">
+            {# <div class="col-md-3">
+                {{ form_row(form.min) }}
+                
+                {{ form_row(form.max) }}
+        
+            </div> #}
+        
+            
+            {{ form_row(form.superficie) }}
+            
+            {{ form_row(form.nbre_piece) }}
+        
+        </div>
+        
+        
+        
+
+        <button type="submit" class="btn btn-primary w-100">
+            filtrer
+        </button>
+
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# 
+{{ form_start(form, {attr: {class: 'filtre' }}
+) }} 
+
+
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                    Rechercher
+                                                        
+                                    
+                </label>
+                {{ form_row(form.q, {'attr': {'class': 'form-control' }}
+                ) }}
+                                                       
+                                            
+                            
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                    Types
+                                                        
+                                    
+                </label>
+                {# {{ form_row(form.types, {'attr': {'class': 'form-control' }}
+                                                ) }} #}
+
+                {# <div class="form-check">
+                    {{ form_row(form.types, {'attr': {'class': 'form-check-input' }}
+                    ) }}
+                                                
+                                    
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                    Formes
+                                                                    
+                                                        
+                                    
+                </label>
+
+                <div class="form-check">
+                    {{ form_row(form.formes, {'attr': {'class': 'form-check-input' }}
+                    ) }}
+                                                
+                                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">
+                            Prix Min         
+                                                                        
+                                                    
+                        </label>
+                        {{ form_row(form.min, {'attr': {'class': 'form-control' }}
+                        ) }}
+                                            
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">
+                            Prix Max         
+                                                                        
+                                                    
+                        </label>
+                        {{ form_row(form.max, {'attr': {'class': 'form-control' }}
+                        ) }}
+                                                            
+                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        {{ form_row(form.superficie, {'attr': {'class': 'form-control', 'placeholder': 'Superficie' }}
+                        ) }}
+                                                                    
+                                            
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        {{ form_row(form.nbre_piece, {'attr': {'class': 'form-control' }}
+                        ) }}
+                                                                    
+                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mb-3"></div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"></label>
+                <button type="submit" class="btn btn-success w-100">
+                    Rechercher
+                                                                            
+                                                                    
+                                    
+                </button>
+            </div>
+        </div>
+        <div></div>
+        {{ form_end(form) }}
+         #} 

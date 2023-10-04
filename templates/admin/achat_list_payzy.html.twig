@@ -1,0 +1,169 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+     Marché des Plans  Administration -- Listes des Achats de la plateforme   
+                
+            
+        
+    
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Listes De Tous Les Achats             
+                                           
+                                            
+                                
+                    
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            <div class="card">
+                <div class="card-body">
+
+                {% if  is_granted('ROLE_ADMIN') %}
+
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Maison                                                                                       
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        <th>
+                                            Plans                                                                                       
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        <th>
+                                            Client                                                                                      
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        <th>
+                                            Status                                                      
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        <th>
+                                            Payement                                                      
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        <th>
+                                            Date 
+                                                                                                                                                                                                                            
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th>
+                                        {# <th>
+                                            Code de la Transaction
+                                                                                                                                                                                                                            
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th> #}
+
+                                        {# <th>
+                                            Action
+                                                                                                                                                                                                                            
+                                                                                                                                                                                            
+                                                                                                                                                            
+                                                                                                                                
+                                                                                    
+                                        </th> #}
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for achat in achats %}
+                                        <tr>
+                                            <td>
+                                                {{ achat.plan.getTitre() }}
+
+                                            </td>
+
+                                            <td>
+                                                {{ achat.miniplan.getTitre() }}
+
+                                            </td>
+                                            <td>
+                                                {{ achat.getUsers().getEmail() }}
+                                            </td>
+                                            <td>
+                                                {{ achat.etat }}
+                                            </td>
+                                            <td>
+                                                {{ achat.payement }}
+                                            </td>
+                                            <td>
+                                                {{ achat.getCreatedAt().format('d/m/Y') }}
+                                            </td>
+                                           
+
+                                            </tr>
+
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7">
+                                                    aucun achat  
+                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+                                                                                                                                                                                            
+                                                                                                                                                    
+                                                                                                    
+                                                </td>
+                                            </tr>
+
+                                        {% endfor %}
+
+                                    </tbody>
+
+                                </table>
+
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

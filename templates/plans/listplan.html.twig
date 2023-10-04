@@ -1,0 +1,165 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+	Listes Des Maisons
+
+
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+	<div class="col-12 d-flex no-block align-items-center">
+		<h4 class="page-title">
+			Listes des Plans
+
+		</h4>
+		<div class="ml-auto text-right">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+
+						{% if is_granted('ROLE_ARCHITECTE') %}
+
+							<a class="btn btn-cyan" href="{{ path('plans_new') }}">
+								Créer un plan
+
+							</a>
+						{% endif %}
+
+					</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+</div></div><div class="container-fluid">
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+
+
+			<div class="card">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="zero_config" class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>
+										Id
+
+									</th>
+									<th>
+										Titre
+
+									</th>
+									<th>
+										Pieces
+
+									</th>
+									<th>
+										Etage
+
+									</th>
+									<th>
+										Superficie
+																
+									</th>
+									<th>
+										Garage
+
+									</th>
+									{# <th>
+										Nom de l'Architecte
+									</th> #}
+									<th>
+										Action
+
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for plan in plans %}
+									<tr>
+										<td>
+											{{ plan.id | slice(0, 15) }}
+										</td>
+										<td>
+											{{ plan.titre | slice(0, 15) }}
+										</td>
+										<td>
+											{{ plan.nbrePiece }}
+										</td>
+										<td>
+											{{ plan.nbreEtage }}
+										</td>
+										<td>
+											{{ plan.superficie }}
+										</td>
+										<td>
+											{{ plan.garage }}
+										</td>
+
+										<td>
+
+											<a class="btn btn-primary btn-sm" href="{{ path('plans_show', {'id': plan. id}) }}">
+												Voir
+											</a>
+
+										
+											{% if  is_granted('ROLE_ARCHITECTE') %}
+
+												{% if plan.user.id == app.user.id %}
+
+													<a class="btn btn-success btn-sm" href="{{ path('plans_edit', {'id': plan.id}) }}">
+														Modifier
+													</a>
+
+													<a class="btn btn-primary btn-sm" href="{{ path('mini_plan_show', {'id': plan.id}) }}">
+														Plans
+													</a>
+													
+													<form method="post" action="{{ path('plans_delete', {'id': plan.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+														<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ plan.id) }}">
+														<input type="hidden" name="_method" value="DELETE">
+														<button class="btn btn-danger btn-sm" style="color:#fff;">
+															Supprimer
+														</button>
+													</form>
+
+												{% endif %}
+
+
+											{% endif %}
+
+										</td>
+									</tr>
+								{% endfor %}
+
+							</tbody>
+
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div></div>{% block javascripts %}
+
+
+<script src=" {{ asset('dataTables.bootstrap.min.js') }}"></script>
+
+        <script src=" {{ asset('jquery-3.5.1.js') }}"></script>
+
+        <script src=" {{ asset('jquery.dataTables.min.js') }}"></script>
+
+        <script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+{% endblock %}{% endblock %}

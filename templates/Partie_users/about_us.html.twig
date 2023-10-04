@@ -1,0 +1,160 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Marché des Plans - A Propos
+{% endblock %}
+
+{% block body %}
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Marché<br>
+								des Plans</h1>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+	<!--Start Company Overview Area-->
+	<section class="company-overview-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="intro-box clearfix">
+						<div class="sec-title">
+							<p>Vue d'ensemble sur la Compagnie</p>
+							<div class="title">Marché des Plans<br>
+								<span>
+									Ventes de Plans Architecturaux
+								</span>
+							</div>
+						</div>
+						<div class="text">
+							<p>
+								Nous pensons que la construction d'une maison est l'une des réalisations les plus importantes qu'une persone peut faire.
+								                                C'est à cet effet que nous pensons que la construction est l'une des choses les plus importantes que vous puissez faire.
+								<br>
+								Nous vous proposons de le réaliser grâce à des plans qui répondent à vos besoins et en fonction du terrain de Construction.
+								<br>
+								Nous disposons d'Architectes qualifiés pour vous donner des conseils et vous suivre dans votre réalisation.
+								<br>
+								<br>
+								<div class="button">
+									<a class="btn-one" href="{{ path('plan_list') }}">Voir tous les plans<span class="flaticon-next"></span>
+									</a>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="history-content-box clearfix">
+						<div
+							class="history-carousel owl-carousel owl-theme">
+							<!--Start Single History Content-->
+							<div class="single-history-content">
+								<div class="img-box">
+									<div class="inner">
+										<img src="{{asset('new/images/resources/mdp.png')}}" width="200px" alt="Awesome Image">
+									</div>
+								</div>
+								<div class="text-box">
+									<div class="inner">
+										<div class="date">
+											<h3>
+												1</h3>
+										</div>
+										<div class="title">
+											<h3>Rechercher le plan
+												<br>
+												d'une maison.</h3>
+										</div>
+										<div class="text">
+											<p>
+												Rechercher le plan de la maison qui répond et satisfait à vos exigences et à
+												<br>
+												votre besoin. Vous avez la possibilité de faire une recherche par prix,superficie,nombre de pièces
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End Single History Content-->
+							<!--Start Single History Content-->
+							<div class="single-history-content">
+								<div class="img-box">
+									<div
+										class="inner">{# <img src="{{asset('new/images/resources/mdp.png')}}" width="200px" alt="Awesome Image"> #}
+									</div>
+								</div>
+								<div class="text-box">
+									<div class="inner">
+										<div class="date">
+											<h3>2</h3>
+										</div>
+										<div class="title">
+											<h3>Acheter un plan et
+												<br>
+												valider le payement.</h3>
+										</div>
+										<div class="text">
+											<p>
+												En fonction de vos préférences vous acheter le plan de la maison et valider
+												                                                     le paiement en ligne par PayGate et Payzy. Vous pouvez aussi ajouter au panier
+												                                                      et acheter le plan pour plus tard.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End Single History Content-->
+							<!--Start Single History Content-->
+							<div class="single-history-content">
+								<div class="img-box">
+									<div
+										class="inner">{# <img src="{{asset('new/images/resources/mdp.png')}}" width="200px" alt="Awesome Image"> #}
+									</div>
+								</div>
+								<div class="text-box">
+									<div class="inner">
+										<div class="date">
+											<h3>3</h3>
+										</div>
+										<div class="title">
+											<h3>Télécharger le Plan
+												<br>
+												de votre Maison.</h3>
+										</div>
+										<div class="text">
+											<p>
+												Après paiement de votre plan de maison , vous avez la possibilité de télécharger le plan afin d'en faire usage.
+												                                                    Vous avez la possibilité de nous contacter pour assistance sur le projet de construction ou des conseils.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End Single History Content-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End Company Overview Area-->
+
+
+	
+
+{% endblock %}

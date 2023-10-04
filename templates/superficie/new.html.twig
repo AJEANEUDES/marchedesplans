@@ -1,0 +1,31 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+    Marché des Plans  Administration --Créer une Superficie
+    
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Ajouter  une Superficie à la Maison
+            		
+        </h4>
+
+    </div>
+
+    <div class="container-fluid">
+
+        {{ include('superficie/_form.html.twig') }}
+
+        <br>
+            <br>
+                <a class="btn btn-danger" href="{{ path('superficie_index') }}">
+                    Revenir à la liste
+                </a>
+
+            </div>
+
+        {% endblock %}
+        

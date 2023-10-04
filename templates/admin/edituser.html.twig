@@ -1,0 +1,99 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+    Marché des Plans  Administration -- Modifier Utilisateur
+                
+            
+        
+    
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Modifier l'Utilisateur            
+                                
+                    
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">
+                           Accueil
+                                                                                                    
+                                                                                
+                                                    
+                        </a>
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            {{ form_start(userForm) }}
+            <div class="card-body">
+                
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                        Email
+                                                                                                    
+                                                                                
+                                                            
+                                        
+                    </label>
+                    <div class="col-sm-9">
+                        {{ form_widget(userForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Email' }}
+                        ) }}
+                                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">
+                        Roles
+                    </label>
+                    <div class="col-sm-9">
+                        {{ form_widget(userForm.roles) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 text-right control-label col-form-label">
+                        Pseudo
+                    </label>
+                    <div class="col-sm-9">
+                        {{ form_widget(userForm.pseudo, {'attr': {'class': 'form-control' }}
+                        ) }}
+                                            
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 text-right control-label col-form-label">
+                        Pays
+                    </label>
+                    <div class="col-sm-9">
+                        {{ form_widget(userForm.pays, {'attr': {'class': 'form-control' }}
+                        ) }}                  
+                                            
+                    </div>
+                </div>
+
+            </div>
+            <div class="border-top">
+                <div class="card-body">
+
+                    <button class="btn btn-cyan">
+                        {{ button_label|default('Save') }}
+                    </button>
+                </div>
+            </div>
+            {{ form_end(userForm) }}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+     Marché des Plans  Administration -- Listes des Utilisateurs
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Listes des Utilisateurs           
+                    
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                       
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    
+                </h5>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    email
+                                </th>
+                                
+                                <th>
+                                    Roles
+                                </th>
+                                <th>
+                                    Pseudo 
+                                </th>
+                                <th>
+                                    pays 
+                                </th>
+                                <th>
+                                    actions
+                                </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>
+                                        {{ user.email }}
+                                    </td>
+                                    
+                                    <td>
+                                        {% for role in user.roles %}
+                                                {% if role == "ROLE_USER" %}
+                                                        Client
+                                                    {% elseif role == "ROLE_ARCHITECTE" %}
+                                                    Architecte
+                                                    {% elseif role == "ROLE_ADMIN" %}
+                                                    Administrateur
+                                                {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                        {{ user.pseudo }}
+                                    </td>
+                                    <td>
+                                        {{ user.pays }}
+                                    </td>
+                                    <td>
+                                       
+                                        <a class="btn btn-success" href="{{ path('admin_modifier_user',{'id': user.id}) }}">
+                                            Modifier
+                                        </a>
+                                       
+                                    </td>
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">
+                                        aucun user veuillez en créer 
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+       
+
+    </div>
+</div></div></div>
+
+
+
+{% block javascripts %}
+
+
+     
+    
+{% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+
+
+
+# partie----- admin--------------------------partie----- admin------------------------partie----- admin#
+
+#dashboard:
+#   path: /Dashboard
+#   controller: App\Controller\AdminController::dashboard
+
+
+
+
+    
+
+
+# listes_achats_client:
+#    path: /liste/achats/client
+#    controller: App\Controller\UserController::achat_list_client
+
+apiregister:
+  path: /apiregister
+  controller: App\Controller\ApiController::register
+  methods: POST
+
+api:
+  path: /api
+  controller: App\Controller\ApiController::api
+
+api_login_check:
+  path: /api/login_check
+
+
+    

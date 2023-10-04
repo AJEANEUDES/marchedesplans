@@ -1,0 +1,167 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+
+{% block title %}
+    Marché des Plans  Administration -- Listes des Plans Achetés
+    
+{% endblock %}
+ 
+{% block stylesheets %}
+<link href=" {{ asset('bootstrap.min.css') }}" rel="stylesheet"/>
+<link href=" {{ asset('dataTables.bootstrap.min.css') }}" rel="stylesheet"/>    
+{% endblock %} 
+
+{% block body %}
+
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">
+            Mes Plans Achetés      
+                                                                    
+                                                        
+                                            
+                                
+                    
+        </h4>
+        <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+
+                        {# <a class="btn btn-cyan" href="{{ path('plans_new') }}">
+                            Create new
+                                                    
+                        </a> #}
+
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div></div><div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            {% if is_granted('ROLE_ARCHITECTE') %}
+
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Plans                                                                                       
+                                                        
+                        </th>
+                        <th>
+                            Client                                                                                      
+                                                        
+                        </th>
+                        <th>
+                            Status                                                      
+                                                        
+                        </th>
+                        <th>
+                            Methode de Payement                                                      
+                                                        
+                        </th>
+                        <th>
+                            Date 
+                                                                                        
+                                                        
+                        </th>
+
+                        <th>
+                            Action
+                                                                                        
+                                                        
+                        </th>
+                        
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for user in users.achat %}
+                            <tr>
+                                <td>  
+                                    {{  user.plan.getTitre() }}            
+                                                                   
+                                    
+                                </td>
+                                <td>
+                                    {{  user.getUsers().getEmail() }}
+                                </td>
+                                <td>
+                                    {{  user.etat }}
+                                </td>
+                                <td>
+                                    {{  user.payement }}
+                                </td>
+                                <td>
+                                    {{  user.getCreatedAt().format('d/m/Y') }} 
+                                </td>
+                                   
+                                    <td>
+                                        <a class="btn btn-primary" href="">
+                                            Voir                                                                     
+                                                                                                                            
+                                                                                                
+                                                                                
+                                        </a>
+                                        <a class="btn btn-success" href="">
+                                            Modifier                                                                                                         
+                                                                                                
+                                                                                
+                                        </a>
+    
+                                        
+                                    </td>
+                                    
+                                </tr>
+
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">
+                                        Aucun plan ajouté
+                                                                                                                                                            
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+               
+
+
+
+
+                    
+                
+                
+                
+                
+                {% endif %}
+
+
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+
+    <script src=" {{ asset('dataTables.bootstrap.min.js') }}"></script>
+
+    <script src=" {{ asset('jquery-3.5.1.js') }}"></script>
+
+    <script src=" {{ asset('jquery.dataTables.min.js') }}"></script>
+
+    <script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+{% endblock %}{% endblock %}

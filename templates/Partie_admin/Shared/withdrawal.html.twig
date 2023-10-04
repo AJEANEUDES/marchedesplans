@@ -1,0 +1,84 @@
+
+<div class="modal fade" id="withdrawal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">
+
+                Détails du Retrait
+            </h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			{# {% if app.request.attributes.get('_route') == 'mini_plan_show' %} #}
+
+			<div class="modal-body" style="color: black;">
+				<form action="{{ path('demande_de_retrait') }}" method="POST" onsubmit="this.submit_button.disabled = true;">
+
+				
+					<div class="form-group">
+						<label>Votre Email  est :{{app.user.email}} </label>						
+					</div>
+					{# <div class="form-group">
+						<label> Le Nombre de plans vendus est : {{nbredevente}}  </label>						
+					</div> #}
+					<div class="form-group">
+						<label> Le Prix Total des ventes : {{total}}  FR CFA </label>						
+					</div>
+
+					{# <div class="form-group">
+						<label> la commission de la plateforme est de 5% dont :{{ (total*5)/100}} FR CFA</label>						
+					</div> #}
+
+
+					<div class="form-group">
+						<label>Vous devez retirez la somme de :  {{total-((total*5)/100)}} FR CFA </label>						
+					</div>
+
+					
+					<div class="form-group">
+						<label><strong>NB:Les frais de retraits ne sont pas pris en compte par notre plateforme</strong></label>						
+					</div>
+
+
+					{# <div class="form-group">
+						<label> Veuillez entrer Votre mot de passe pour comfirmer votre identité </label>
+					</div>
+					<div class="form-group">
+
+					   <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+				    </div> #}
+					
+					<div class="form-group">
+						<label> Saisir le numero de Téléphone sur lequel vous voulez recevoir l'argent </label>
+					</div>
+					<div class="form-group"> 
+		
+					<input type="tel" class="form-control" id="telephone" min="8" max="8" name="telephone" aria-describedby="emailHelp" placeholder="ex: 9XXXXXX ou 7XXXXXXX" required>
+
+					</div>
+
+
+					
+					{# <div class="form-group">
+						<input type="hidden" class="form-control" id="identifier" value="{{ random() - 2 }}" name="identifier" hidden required>
+					</div> #}
+
+					{# <input type="Button" onClick="this.value='Submitting..';this.disabled=true;" value="Submit"> #}
+					<button type="submit" class="btn btn-primary">Soumettre la demande</button>
+
+
+					
+				</form>
+			</div>
+
+			
+
+			
+
+			
+		</div>
+	</div>
+</div>

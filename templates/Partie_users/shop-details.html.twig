@@ -1,0 +1,239 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Marché des Plans - Détails
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+
+{% block body %}
+
+
+	<!--Start breadcrumb area-->
+	<section class="breadcrumb-area style2 " style="background-image: url({{asset('new/images/slides/3.jpg')}});">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="inner-content-box clearfix">
+						<div class="title">
+							<h1>Détail de la Maison
+							</h1>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--End breadcrumb area-->
+
+
+	<!--Start shop area-->
+	<section id="shop-area" class="single-shop-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+					<div
+						class="shop-content">
+						<!--Start single shop content-->
+						<div class="single-shop-content">
+							<div class="row">
+								<div class="col-lg-8">
+
+									<div class="testimonial-carousel owl-carousel owl-theme">
+										{% for image in plan.images %}
+											<img data-imgbigurl="{{ asset('/uploads/' ~ image.nom) }}" src="{{ asset('/uploads/' ~ image.nom) }}" alt="#" oncontextmenu="return false;"/>
+
+										{% endfor %}
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="content-box">
+										<h2>{{ plan.titre }}</h2>
+
+
+										<br>
+										<br>
+
+
+										{% if app.user %}
+
+											<a href="{{path('cart_add_plan_complet',{id: plan.id})}}" class="btn btn-success">
+												Tous les plans
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										({{prixtotal}}) XOF
+
+
+											</a>
+
+											<br>
+											<br>
+
+
+											{% if plan.user.id != app.user.id  %}
+
+												<a href="{{ path('liste_des_mini_plan',{'id':plan. id}) }}" class="btn btn-danger addtocart">
+													Voir les plans en détail
+												</a>
+
+											</div>
+											<br>
+											<br>
+
+
+										{% else %}
+
+
+											<a href="{{ path('liste_des_mini_plan',{'id':plan. id}) }}" class="btn btn-danger">
+												Voir mes Plans
+											</a>
+
+										</div>
+										<br>
+
+										<br>
+
+
+									{% endif %}
+
+
+								{% else %}
+
+
+									<a href="{{path('cart_add_plan_complet',{id: plan.id})}}" class="btn btn-success">
+										Tous les plans
+																																																																																																																																											({{prixtotal}}) XOF
+
+
+									</a>
+
+									<br>
+									<br>
+
+
+									<a href="{{ path('liste_des_mini_plan',{'id':plan. id}) }}" class="btn btn-danger">
+										Voir les plans en détail
+									</a>
+
+
+								{% endif %}
+								<br>
+								<br>
+
+								<div class="review-box" style="text-align: left;">
+									<div class="text">
+										<h6>INFORMATIONS SUR LA MAISON</h6>
+									</div>
+
+
+									<ul>
+										<li>
+											<b>
+												Type :
+
+											</b>
+											<span>
+												{{ plan.type }}
+											</span>
+										</li>
+										<br><br>
+										<li>
+											<b>
+												Superficie :
+
+											</b>
+											<span>
+												{{ plan.superficie }}
+
+												{# lots #}
+
+											</span>
+										</li>
+										<br><br>
+										<li>
+											<b>
+												Nombre de Chambres :
+
+
+											</b>
+											<span>
+												{{ plan.getNbrePiece() }}
+											</span>
+										</li>
+										<br><br>
+
+
+										<li>
+											<b>
+												Forme :
+
+
+											</b>
+											<span>
+												{{ plan.forme }}
+											</span>
+										</li>
+										<br><br>
+										<li>
+											<b>
+												Nombre d'etages :
+
+											</b>
+											<span>
+												{{ plan.getNbreEtage() }}
+											</span>
+										</li>
+										<br>
+										<br>
+
+
+										{# <li>
+																																																																																	<b>
+																																																																																		Description :<br>
+																																																																																		<br>
+																																																																						
+																																																																																	</b>
+																																																																																	<span style="text-align:center; line-height : 10px; font-weight:bold;">
+																																																																																		{{ plan.description }}
+																																																																																	</span>
+																																																																																</li> #}
+
+									</ul>
+								</br>
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+
+				<br>
+				<br>
+
+				<div class="text">
+					<h2>
+						DESCRIPTION <br>
+						<br>
+
+					</h2>
+
+
+					<p>
+						<span style="text-align:center; line-height : 10px; font-weight:bold;">
+							{{ plan.description }}
+						</span>
+
+					</p>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+</div></section><!--End single shop content-->{% endblock %}

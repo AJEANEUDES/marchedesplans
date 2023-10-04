@@ -1,0 +1,397 @@
+{% extends "Partie_admin/Shared/base.html.twig" %}
+{% block title %}
+	Marché des Plans - Administration: Tableau de bord
+
+{% endblock %}
+{% block body %}
+	{% if is_granted('ROLE_ARCHITECTE') %}
+		<div class="col-12 d-flex no-block align-items-center">
+			<h4 class="page-title">
+			Panneau d'Administration
+			</h4>
+			<div class="ml-auto text-right">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+							{# {% include "Partie_admin/Shared/withdrawal.html.twig" %}
+
+
+						{% if app.request.attributes.get('_route') == 'miniplans_index' %}
+
+
+							{% if list_des_achats  %}
+								{% if (list_des_achats|length) >=1  %}
+
+
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#withdrawal">
+										<span class="badge badge-light">{{list_des_achats|length}}</span>
+										Demande de retrait
+									</button>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+ #}
+
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+	<div class="container-fluid"> <!-- ============================================================== -->
+	<!-- Sales Cards  -->
+	<!-- ============================================================== -->
+
+
+		<div class="row"> <div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-md-flex align-items-center"></div>
+					<div class="row">
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start"></div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success "></div>
+										</div>
+									</div>
+									<h4 class="text-muted font-weight-normal">
+										{% if is_granted('ROLE_ADMIN') %}
+											<div class="box bg-success text-center">
+												<h1 class="font-light text-white">
+													<i class="fa fa-user"></i>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">Nombre d'Utilisateurs
+															<br>
+															<span class="badge badge-danger">{{ users|length }}</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+
+
+										{% elseif is_granted('ROLE_ARCHITECTE') %}
+											{# ROLE_ARCHITECTE #}
+
+										{% else %}
+											users
+
+										{% endif %}
+									</h4>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start"></div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success"></div>
+										</div>
+									</div>
+									<h4 class="text-muted font-weight-normal">
+										{% if is_granted('ROLE_ADMIN') %}
+
+											<div class="box bg-warning text-center">
+												<h1 class="font-light text-white">
+													<img src="{{asset('new/images/resources/home.png')}}" width="50px"/>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">
+															Nombre de Plans
+															<br>
+															<span class="badge badge-danger">{{ lesplan|length }}</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+
+										{% elseif is_granted('ROLE_ARCHITECTE') %}
+											<div class="box bg-warning text-center">
+												<h1 class="font-light text-white">
+													<img src="{{asset('new/images/resources/home.png')}}" width="50px"/>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">
+															Nombre de Plans
+															<br>
+															<span class="badge badge-danger">{{ lesplan|length }}</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+										{% else %}
+											users
+
+										{% endif %}
+									</h4>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start"></div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success"></div>
+										</div>
+									</div>
+									<h4 class="text-muted font-weight-normal">
+										{% if is_granted('ROLE_ADMIN') %}
+
+											<div class="box bg-warning text-center">
+												<h1 class="font-light text-white">
+													<img src="{{asset('new/images/resources/home.png')}}" width="50px"/>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">
+															Nombre de Maisons
+															<br>
+															<span class="badge badge-danger">{{mesplan|length }}</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+
+										{% elseif is_granted('ROLE_ARCHITECTE') %}
+											<div class="box bg-warning text-center">
+												<h1 class="font-light text-white">
+													<img src="{{asset('new/images/resources/home.png')}}" width="50px"/>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">
+															Nombre de Maisons
+															<br>
+															<span class="badge badge-danger">{{mesplan|length }}</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+										{% else %}
+											users
+
+										{% endif %}
+									</h4>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start"></div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-danger"></div>
+										</div>
+									</div>
+									{% if is_granted('ROLE_ADMIN') %}
+
+										<div class="box bg-cyan text-center">
+											<h1 class="font-light text-white">
+												<img src="{{asset('new/images/resources/money.png')}}" width="50px"/>
+											</h1>
+											<h6 class="text-white">
+												<font style="vertical-align: inherit;">
+													<font style="vertical-align: inherit;">Total des Fonds<br>
+														<span class="badge badge-danger">
+															{{ fondtotal }}
+															XOF</span>
+													</font>
+												</font>
+											</h6>
+										</div>
+
+
+										{% else %}
+
+
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start"></div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success "></div>
+										</div>
+									</div>
+									{% if is_granted('ROLE_ADMIN') %}
+
+										<div class="box bg-info text-center">
+											<h1 class="font-light text-white">
+												<img src="{{asset('new/images/resources/money.png')}}" width="50px"/>
+											</h1>
+											<h6 class="text-white">
+												<font style="vertical-align: inherit;">
+													<font style="vertical-align: inherit;">
+														Nombre d'Achat
+														<br>
+														<span class="badge badge-danger">{{nbredevente}}
+															Achats</span>
+													</font>
+												</font>
+											</h6>
+										</div>
+										{% else %}
+
+
+									{% endif %}
+								</div>
+
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start">
+												<h3 class="mb-0"></h3>
+												<p class="text-success ms-2 mb-0 font-weight-medium"></p>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success "></div>
+										</div>
+									</div>
+									<h4 class="text-muted font-weight-normal">
+										{% if is_granted('ROLE_ADMIN') %}
+											<div class="box bg-info text-center">
+												<h1 class="font-light text-white">
+													<i class="fa fa-user"></i>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">Connecté(e) comme
+														<br>
+														<font style="vertical-align: inherit;">
+															<span class="badge badge-danger">ADMIN</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+
+										{% elseif is_granted('ROLE_ARCHITECTE') %}
+
+
+											<div class="box bg-info text-center">
+												<h1 class="font-light text-white">
+													<i class="fa fa-user"></i>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">Connecté(e) comme
+														<br>
+														<font style="vertical-align: inherit;">
+															<span class="badge badge-danger">ARCHITECTE</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+										{% else %}
+											users
+
+										{% endif %}
+									</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-9">
+											<div class="d-flex align-items-center align-self-start">
+												<h3 class="mb-0"></h3>
+												<p class="text-success ms-2 mb-0 font-weight-medium"></p>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="icon icon-box-success"></div>
+										</div>
+									</div>
+									<h4 class="text-muted font-weight-normal">
+										{% if is_granted('ROLE_ADMIN') %}
+
+											<div class="box bg-info text-center">
+												<h1 class="font-light text-white">
+													<i class="fa fa-user"></i>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">Rôle
+															<br>
+															<span class="badge badge-danger">ADMIN</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+										{% elseif is_granted('ROLE_ARCHITECTE') %}
+
+											<div class="box bg-info text-center">
+												<h1 class="font-light text-white">
+													<i class="fa fa-user"></i>
+												</h1>
+												<h6 class="text-white">
+													<font style="vertical-align: inherit;">
+														<font style="vertical-align: inherit;">Rôle
+															<br>
+															<span class="badge badge-danger">ARCHITECTE</span>
+														</font>
+													</font>
+												</h6>
+											</div>
+										{% else %}
+											users
+
+										{% endif %}
+									</h4>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div><!-- ============================================================== --><!-- Sales chart -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- Sales chart -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- Recent comment and chats -->
+			<!-- ============================================================== -->
+		{% endif %}
+
+	{% endblock %}
